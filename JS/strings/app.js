@@ -112,7 +112,7 @@ console.log(parseDuration("4h 45min"));
 const getGameAcronym = (title) => {
   return title
     .split(" ")
-    .map((e) => e[0].toUpperCase()) // CR - Give meaningful names. Not e.
+    .map((title) => title[0].toUpperCase()) // CR - Give meaningful names. Not e.
     .join(" ");
 };
 console.log(getGameAcronym("the best hero in the world"));
@@ -126,4 +126,53 @@ console.log(getGameAcronym("the best hero in the world"));
 // Input:
 // { name: "Iron Warrior", class: "Warrior", level: 10 }
 // Output:
-// "Iron Warrior, class: Warrior, level: 10"
+// "name:Iron Warrior, class: Warrior, level: 10"
+// const characterDetails = { name: "Iron Warrior", class: "Warrior", level: 10 };
+
+// const getCharacterDetails = (characterDetails) => {
+//   const keysToStr = Object.keys(characterDetails);
+//   const valuesToStr = Object.values(characterDetails);
+// };
+
+// console.log(getCharacterDetails(characterDetails));
+
+// 7.
+// Location Slug
+// : Write a function,
+// createSlug(location)
+// , that takes a location nameand returns a URL-friendly slug.
+// Input:
+// "Dark Forest"
+// Output:
+// "dark-forest"
+
+const createSlug = (location) => {
+  return location.toLowerCase().split(" ").join("-");
+};
+
+console.log(createSlug("Dark Forest"));
+
+// 8.
+// Quest Description Trimming
+// : Write a function,
+// trimDescription(description, maxLength)
+// , that trims the quest's description to aspecified length without cutting off words.
+// Input:
+// "Retrieve the sacred artifact from the dragon's lair. But beware,the dragon is cunning and powerful."
+// , 50
+// Output:
+// "Retrieve the sacred artifact from the dragon's lair..."
+
+const trimDescription = (description, maxLength) => {
+  const trimDes = description.slice(0, maxLength);
+  console.log(description);
+  console.log(trimDes);
+  return trimDes;
+};
+
+console.log(
+  trimDescription(
+    "Retrieve the sacred artifact from the dragon's lair. But beware,the dragon is cunning and powerful.",
+    51
+  )
+);
