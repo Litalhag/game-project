@@ -115,4 +115,4 @@ const getGameAcronym = (title) => {
     .map((e) => e[0].toUpperCase())
     .join(" ");
 };
-console.log(getGameAcronym("epic antasy attle"));
+console.log(getGameAcronym("the best hero in the world"));
