@@ -43,7 +43,7 @@ console.log(toTitleCase("Iron Warrior the warrior of justice"));
 
 const inventory = ["Iron Sword", "Healing Potion", "Steel Shield", "Iron mace"];
 const searchInventory = (inventory, query) => {
-  return inventory.filter((item) => item.includes("Iron"));
+  return inventory.filter((item) => item.includes(query));
 };
 
 console.log(searchInventory(inventory, "Iron"));
@@ -116,3 +116,14 @@ const getGameAcronym = (title) => {
     .join(" ");
 };
 console.log(getGameAcronym("the best hero in the world"));
+
+// 6.
+// Concatenate Character Details
+// : Write a function,
+// getCharacterDetails(character)
+// that takes an object with character details like name, class, and level and returns a singlestring that combines
+//all this information.
+// Input:
+// { name: "Iron Warrior", class: "Warrior", level: 10 }
+// Output:
+// "Iron Warrior, class: Warrior, level: 10"
