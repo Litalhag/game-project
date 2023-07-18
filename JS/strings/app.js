@@ -73,3 +73,28 @@ const formatNPCName2 = (NpcName) => {
   return swapNpcName;
 };
 console.log(formatNPCName2("Goblin Grunty"));
+
+// 4.
+// Quest Duration
+// : Write a function,
+// parseDuration(duration)
+// , that takes a string like"2h 30min" and returns an object with the number of hours and minutes as integers.
+// Input:
+// "3h 45min"
+// Output:
+// { hours: 3, minutes: 45 }
+
+const parseDuration = (duration) => {
+  let obj = {
+    hours: [],
+    minutes: [],
+  };
+  const [hoursStr, minutesStr] = duration.split(" ");
+  const parsedHoursStr = parseInt(hoursStr);
+  const parsedMinutesStr = parseInt(minutesStr);
+  console.log(parsedHoursStr, parsedMinutesStr);
+  [obj.hours, obj.minutes] = [parsedHoursStr, parsedMinutesStr];
+  return obj;
+};
+
+console.log(parseDuration("4h 45min"));
