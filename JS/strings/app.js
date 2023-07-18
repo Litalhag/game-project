@@ -98,3 +98,21 @@ const parseDuration = (duration) => {
 };
 
 console.log(parseDuration("4h 45min"));
+
+// 5.
+// Game Title Acronym
+// : Write a function,
+// getGameAcronym(title)
+// , that takes a game titleand returns its acronym.
+// Input:
+// "Epic Fantasy Battle"
+// Output:
+// "EFB"
+
+const getGameAcronym = (title) => {
+  return title
+    .split(" ")
+    .map((e) => e[0].toUpperCase())
+    .join(" ");
+};
+console.log(getGameAcronym("epic antasy attle"));
