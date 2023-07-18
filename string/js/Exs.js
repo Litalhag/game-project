@@ -29,7 +29,7 @@ console.log(result);
 
 //Ex-3
 function formatNPCName(name) {
-  const [last, first] = name.split(", ").map((word) => word.trim());
+  const [last, first] = name.split(", ").map((word) => word.trim()); // CR - Amzing!!! 💪🏻
   return `${first} ${last} `;
 }
 const input = "Goblin, Grunty";
@@ -38,7 +38,7 @@ console.log(output);
 
 //Ex-4
 function parseDuration(duration) {
-  const [hoursString, minutesString] = duration.split(":");
+  const [hoursString, minutesString] = duration.split(":"); // CR - 💪🏻💪🏻💪🏻
   const hours = parseInt(hoursString, 10);
   const minutes = parseInt(minutesString, 10);
 
@@ -90,12 +90,12 @@ console.log(createSlug("Dark Forest"));
 
 //Ex-8
 function trimDescription(description, maxLength) {
-  if (description.length <= maxLength) {
+  if (description.length <= maxLength) { // CR - very good!!!
     return description;
   }
 
   const words = description.split(" ");
-  let trimmedDescription = "";
+  let trimmedDescription = ""; 
 
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
