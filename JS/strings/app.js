@@ -1,15 +1,7 @@
-// Character Name Capitalization
-// : Write a function,
-// toTitleCase(name)
-// , that takes acharacter's name string in all lowercase and returns it in title case.
-// Input:
-// "iron warrior"
-// Output:
-// "Iron Warrior"
+// 1
 
 const toTitleCase = (characterName) => {
   return characterName
-    .toLowerCase() // CR - why to lower case?
     .split(" ")
     .map(function (word) {
       return word.charAt(0).toUpperCase() + word.slice(1);
@@ -30,33 +22,18 @@ function toTitleCase2(characterName) {
 
 console.log(toTitleCase("Iron Warrior the warrior of justice"));
 
-// 2.
-// Item Search
-// : Write a function,
-// searchInventory(inventory, query)
-// , that takes in an array of inventory item names and a string search query. The function should return a newarray
-// with only the items that contain the query string.
-// Input:
-// ["Iron Sword", "Healing Potion", "Steel Shield"], "Iron"
-// Output:
-// ["Iron Sword"]
+// 2
 
 const inventory = ["Iron Sword", "Healing Potion", "Steel Shield", "Iron mace"];
 const searchInventory = (inventory, query) => {
-  return inventory.filter((item) => item.includes("Iron"));
+  return inventory.filter((item) =>
+    item.toLowerCase().includes(query.toLowerCase())
+  );
 };
 
-console.log(searchInventory(inventory, "Iron"));
+console.log(searchInventory(inventory, "steel"));
 
-// 3.
-// NPC Name Format
-// : Write a function,
-// formatNPCName(name)
-// , which takes an NPC's name in the format "last, first" and swaps it to "first last".
-// Input:
-// "Goblin, Grunty"
-// Output:
-// "Grunty Goblin"
+// 3
 
 const formatNPCName = (NpcName) => {
   let swapNpcName = NpcName.split(" ");
@@ -66,7 +43,7 @@ const formatNPCName = (NpcName) => {
 
 console.log(formatNPCName("Goblin Grunty"));
 
-// 1 more easy way
+// 3.1- 1 more easy way
 const formatNPCName2 = (NpcName) => {
   let swapNpcName = NpcName.split(" ");
   [swapNpcName[0], swapNpcName[1]] = [swapNpcName[1], swapNpcName[0]];
@@ -75,14 +52,6 @@ const formatNPCName2 = (NpcName) => {
 console.log(formatNPCName2("Goblin Grunty"));
 
 // 4.
-// Quest Duration
-// : Write a function,
-// parseDuration(duration)
-// , that takes a string like"2h 30min" and returns an object with the number of hours and minutes as integers.
-// Input:
-// "3h 45min"
-// Output:
-// { hours: 3, minutes: 45 }
 
 const parseDuration = (duration) => {
   let obj = {
@@ -92,22 +61,22 @@ const parseDuration = (duration) => {
   const [hoursStr, minutesStr] = duration.split(" ");
   const parsedHoursStr = parseInt(hoursStr);
   const parsedMinutesStr = parseInt(minutesStr);
-  console.log(parsedHoursStr, parsedMinutesStr);
   [obj.hours, obj.minutes] = [parsedHoursStr, parsedMinutesStr];
   return obj;
 };
 
 console.log(parseDuration("4h 45min"));
 
+// refactoring
+const parseDuration2 = (duration) => {
+  const [hoursStr, minutesStr] = duration.split(" ");
+  return (obj = {
+    hours: parseInt(hoursStr),
+    minutes: parseInt(minutesStr),
+  });
+};
+console.log(parseDuration2("4h 45min"));
 // 5.
-// Game Title Acronym
-// : Write a function,
-// getGameAcronym(title)
-// , that takes a game titleand returns its acronym.
-// Input:
-// "Epic Fantasy Battle"
-// Output:
-// "EFB"
 
 const getGameAcronym = (title) => {
   return title
@@ -137,14 +106,6 @@ console.log(getGameAcronym("the best hero in the world"));
 // console.log(getCharacterDetails(characterDetails));
 
 // 7.
-// Location Slug
-// : Write a function,
-// createSlug(location)
-// , that takes a location nameand returns a URL-friendly slug.
-// Input:
-// "Dark Forest"
-// Output:
-// "dark-forest"
 
 const createSlug = (location) => {
   return location.toLowerCase().split(" ").join("-");
@@ -153,21 +114,9 @@ const createSlug = (location) => {
 console.log(createSlug("Dark Forest"));
 
 // 8.
-// Quest Description Trimming
-// : Write a function,
-// trimDescription(description, maxLength)
-// , that trims the quest's description to aspecified length without cutting off words.
-// Input:
-// "Retrieve the sacred artifact from the dragon's lair. But beware,the dragon is cunning and powerful."
-// , 50
-// Output:
-// "Retrieve the sacred artifact from the dragon's lair..."
 
 const trimDescription = (description, maxLength) => {
-  const trimDes = description.slice(0, maxLength);
-  console.log(description);
-  console.log(trimDes);
-  return trimDes;
+  return (trimDes = description.slice(0, maxLength));
 };
 
 console.log(
