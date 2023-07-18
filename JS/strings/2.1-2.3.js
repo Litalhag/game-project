@@ -52,8 +52,24 @@ console.log(searchInventory(inventory, "Iron"));
 // NPC Name Format
 // : Write a function,
 // formatNPCName(name)
-// , which takes an NPC'sname in the format "last, first" and swaps it to "first last".
+// , which takes an NPC's name in the format "last, first" and swaps it to "first last".
 // Input:
 // "Goblin, Grunty"
 // Output:
 // "Grunty Goblin"
+
+const formatNPCName = (NpcName) => {
+  let swapNpcName = NpcName.split(" ");
+  swapNpcName[0] = swapNpcName.splice(1, 1, swapNpcName[0])[0];
+  return swapNpcName;
+};
+
+console.log(formatNPCName("Goblin Grunty"));
+
+// 1 more easy way
+const formatNPCName2 = (NpcName) => {
+  let swapNpcName = NpcName.split(" ");
+  [swapNpcName[0], swapNpcName[1]] = [swapNpcName[1], swapNpcName[0]];
+  return swapNpcName;
+};
+console.log(formatNPCName2("Goblin Grunty"));
