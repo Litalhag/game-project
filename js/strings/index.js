@@ -76,7 +76,7 @@ console.log(parseDuration("3h 45min"));
 // Exercise 5:
 function getGameAcronym(title) {
   const titleArr = title.split(" "); //[ 'Epic', 'Fantasy', 'Battle']
-  const newTitle = titleArr.map((e) => e[0]);
+  const newTitle = titleArr.map((e) => e[0]); // CR  - don't write 'e' - give more meaningful name
   const upperNewTitle = newTitle.join(" ").toUpperCase();
 
   return upperNewTitle;
@@ -104,9 +104,9 @@ console.log(
 // Exercise 7:
 function createSlug(location) {
   let str = location.toLowerCase();
-  let finalStr = str.replace(" ", "-");
+  let finalStr = str.replace(" ", "-"); // CR - you could לשרשר this to the previous line and return it - like this:
 
-  return finalStr;
+  return finalStr; // CR - return location.toLowerCase()..replace(" ", "-");
 }
 
 console.log(createSlug("Dark Forest"));
