@@ -9,7 +9,7 @@
 
 const toTitleCase = (characterName) => {
   return characterName
-    .toLowerCase()
+    .toLowerCase() // CR - why to lower case?
     .split(" ")
     .map(function (word) {
       return word.charAt(0).toUpperCase() + word.slice(1);
@@ -43,7 +43,7 @@ console.log(toTitleCase("Iron Warrior the warrior of justice"));
 
 const inventory = ["Iron Sword", "Healing Potion", "Steel Shield", "Iron mace"];
 const searchInventory = (inventory, query) => {
-  return inventory.filter((item) => item.includes(query));
+  return inventory.filter((item) => item.includes("Iron"));
 };
 
 console.log(searchInventory(inventory, "Iron"));
@@ -112,7 +112,7 @@ console.log(parseDuration("4h 45min"));
 const getGameAcronym = (title) => {
   return title
     .split(" ")
-    .map((e) => e[0].toUpperCase())
+    .map((e) => e[0].toUpperCase()) // CR - Give meaningful names. Not e.
     .join(" ");
 };
 console.log(getGameAcronym("the best hero in the world"));
