@@ -90,12 +90,13 @@ console.log(createSlug("Dark Forest"));
 
 //Ex-8
 function trimDescription(description, maxLength) {
-  if (description.length <= maxLength) { // CR - very good!!!
+  if (description.length <= maxLength) {
+    // CR - very good!!!
     return description;
   }
 
   const words = description.split(" ");
-  let trimmedDescription = ""; 
+  let trimmedDescription = "";
 
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
@@ -117,3 +118,8 @@ console.log(
 );
 
 //Ex-9
+
+const splitMonsters = (monsters) => {
+  return monsters.split(",").map((monster) => monster.trim());
+};
+console.log(splitMonsters("Goblin, Orc, Dragon"));
