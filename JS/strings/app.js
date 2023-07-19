@@ -81,7 +81,7 @@ console.log(parseDuration2("4h 45min"));
 const getGameAcronym = (title) => {
   return title
     .split(" ")
-    .map((title) => title[0].toUpperCase()) // CR - Give meaningful names. Not e.
+    .map((title) => title[0].toUpperCase())
     .join(" ");
 };
 console.log(getGameAcronym("the best hero in the world"));
@@ -125,3 +125,46 @@ console.log(
     51
   )
 );
+
+// 9
+
+const splitMonsters = (monsters) => {
+  return monsters.split(", ");
+};
+
+console.log(splitMonsters("Goblin, Orc, Dragon"));
+
+//10
+const decodeSecret = (secret) => {
+  return secret.replace(/3/g, "e").replace(/1/g, "i").replace(/4/g, "a");
+};
+console.log(decodeSecret("Th3 s3cr3t l41r 1s und3r th3 br1dg3"));
+
+function decodeSecret2(secret) {
+  mapping = { 1: "i", 2: "b", 3: "e", 4: "a", 5: "e" };
+
+  return secret
+    .split("")
+    .map((char) => {
+      if (mapping[char]) {
+        return mapping[char];
+      } else {
+        return char;
+      }
+    })
+    .join("");
+}
+
+console.log(decodeSecret2("Th3 s3cr3t l41r 1s und3r th3 br1dg3"));
+
+// refactoring
+function decodeSecret3(secret) {
+  mapping = { 1: "i", 2: "b", 3: "e", 4: "a", 5: "e" };
+
+  return secret
+    .split("")
+    .map((char) => (mapping[char] ? mapping[char] : char))
+    .join("");
+}
+
+console.log(decodeSecret3("Th3 s3cr3t l41r 1s und3r th3 br1dg3"));
