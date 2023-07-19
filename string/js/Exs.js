@@ -1,18 +1,11 @@
-//Ex-1
-const toTitleCase = (string) => {
-  let result = "";
-  result = string[0].toUpperCase();
-  for (let i = 1; i < string.length; i++) {
-    result += string[i];
-    if (string[i] === " ") {
-      result += string[i + 1].toUpperCase();
-      i++;
-    }
-  }
+// //Ex-1
 
-  return result;
-};
-
+function toTitleCase(name) {
+  return name
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 console.log(toTitleCase("nadia hosisy"));
 
 //Ex-2
