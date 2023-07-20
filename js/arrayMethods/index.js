@@ -95,8 +95,3 @@ console.log('question 9');
 console.log(inventoryArr(players));
 
 
-
-
-
-
-
