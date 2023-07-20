@@ -7,11 +7,14 @@ console.log(
 
 //2
 
-const FilterPlayers = (playerLevels, minLevel) => {
+const filterPlayersBylevel = (playerLevels, minLevel) => {
   return playerLevels.filter((player) => player.level >= minLevel);
 };
 console.log(
-  FilterPlayers([{ level: 1 }, { level: 2 }, { level: 3 }], (minLevel = 2))
+  filterPlayersBylevel(
+    [{ level: 1 }, { level: 2 }, { level: 3 }],
+    (minLevel = 2)
+  )
 );
 
 //3
@@ -21,7 +24,9 @@ const calcPlayersHealth = (players) =>
 console.log(
   calcPlayersHealth([{ health: 100 }, { health: 120 }, { health: 80 }])
 );
+
 //4
+
 const combine = (players) =>
   players.map((player) => `${player.name} - Level ${player.level}`);
 
@@ -64,3 +69,32 @@ console.log(
     "forest"
   )
 );
+
+// 7
+const averagePlayerLevel = (players) => {
+  const totalLevels = players.reduce(
+    (total, player) => total + player.level,
+    0
+  );
+  return totalLevels / players.length;
+};
+
+console.log(averagePlayerLevel([{ level: 1 }, { level: 2 }, { level: 3 }]));
+
+// 8
+
+const sortPlayers = (players) => {
+  const sortedPlayers = players.sort((a, b) => a.health - b.health);
+  return sortedPlayers;
+};
+console.log(sortPlayers([{ health: 100 }, { health: 120 }, { health: 80 }]));
+
+//9
+const inventories = [
+  { inventory: ["sword", "health potion"] },
+  { inventory: ["axe", "shield"] },
+];
+
+const playerInventories = (inventories) =>
+  inventories.map((player) => player.inventory);
+console.log(playerInventories(inventories));
