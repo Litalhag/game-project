@@ -76,7 +76,7 @@ console.log(parseDuration("3h 45min"));
 // Exercise 5:
 function getGameAcronym(title) {
   const titleArr = title.split(" "); //[ 'Epic', 'Fantasy', 'Battle']
-  const newTitle = titleArr.map((e) => e[0]); // CR  - don't write 'e' - give more meaningful name
+  const newTitle = titleArr.map((word) => word[0]); // CR  - don't write 'e' - give more meaningful name
   const upperNewTitle = newTitle.join(" ").toUpperCase();
 
   return upperNewTitle;
@@ -112,3 +112,30 @@ function createSlug(location) {
 console.log(createSlug("Dark Forest"));
 // -----------------------------------------------------------------------------------------------
 // Exercise 8:
+function trimDescription(description, maxLength) {
+  if (description.length <= maxLength) {
+    return description;
+  } else {
+    const lastSpaceIndex = description.lastIndexOf(" ", maxLength + 2); // to find the last space char
+    const trimmedDescription = description.slice(0, lastSpaceIndex);
+    return trimmedDescription.concat("..");
+  }
+}
+
+console.log(
+  trimDescription(
+    "Retrieve the sacred artifact from the dragon's lair. But beware, the dragon is cunning and powerful.",
+    50
+  )
+);
+//"Retrieve the sacred artifact from the dragon's lair. But beware, the dragon is cunning and powerful."
+// -----------------------------------------------------------------------------------------------
+// Exercise 9:
+function splitMonsters(monsters) {
+  return (monstersArray = monsters.split(", "));
+}
+
+console.log(splitMonsters("Goblin, Orc, Dragon"));
+// -----------------------------------------------------------------------------------------------
+// Exercise 10:
+// a = 1, e = 2,
