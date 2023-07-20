@@ -1,23 +1,15 @@
 //1 
 function toTitleCase (name){
-    // const arr=name.split("");
-    const arr=[...name];
-    arr[0]= arr[0].toUpperCase();
-    for (i=0; i<arr.length; i++){
-        if (arr[i]===" "){
-            arr[i+1]=arr[i+1].toUpperCase();
-        }
-    }  
-    return arr.join('');
+    return name.split(' ').map(word=> word.charAt(0).toUpperCase()+word.slice(1)).join(' ');
 }
 console.log(toTitleCase(' maria  pinchasi'));
 
 // 2
 function searchInventory(inventory, query){
-    const newArr=inventory.filter (name=>name.includes(query));
+    const newArr=inventory.filter (name=>name.toLowerCase().includes(query.toLowerCase()));
     return newArr;
 }
-console.log(searchInventory(["Iron Sword", "Healing Potion", "Steel Shield"], "Steel"));
+console.log(searchInventory(["Iron Sword", "Healing Potion", "Steel Shield"], "steel"));
 
 // 3
 function formatNPCName(name){
@@ -39,7 +31,7 @@ console.log (parseDuration("3h 45min"));
 
 // 5
 function getGameAcronym(title){
-    return title.split(' ').map(word => word[0]).join('').toUpperCase();
+    return title.split(' ').map(word => word[0].toUpperCase()).join('');
 }
 console.log(getGameAcronym("Epic Fantasy Battle"));
 
@@ -57,18 +49,14 @@ function createSlug(location){
     return location.toLowerCase().split(' ').join('-');
 }
 console.log(createSlug("Dark Forest"));
+
 // 8
 function trimDescription(description, maxLength){
-    const arr=[...description];
-    const newLength=arr.length-maxLength;
-    let str='';
-    for (let i=0; i<=newLength; i++){
-        str+=arr[i];
-    }
-    return str;
+    const newStrLastIndex = description.lastIndexOf(" ",50);
+    return description.slice(0,newStrLastIndex)+'...';
 }
-console.log(trimDescription("Retrieve the sacred artifact from the dragon's lair. But beware,the dragon is cunning and powerful."
-, 50));
+console.log(trimDescription("Retrieve the sacred artifact from the dragon's lair. But beware,the dragon is cunning and powerful.",50));
+
 // 9
 function splitMonsters(monsters){
     const arr= monsters.split(', ');
