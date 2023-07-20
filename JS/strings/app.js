@@ -168,3 +168,8 @@ function decodeSecret3(secret) {
 }
 
 console.log(decodeSecret3("Th3 s3cr3t l41r 1s und3r th3 br1dg3"));
+
+let age = 44;
+let oldage = age;
+age = 45;
+console.log(age, oldage);
