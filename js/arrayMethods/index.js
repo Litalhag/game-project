@@ -61,8 +61,8 @@ console.log(namesAndLevels(players));
 
 // 5
 const updatePlayerHealth= (players,newHealth,playerName)=> players.map (player=> {
-    if (player.name===playerName) return{
-        ...player,
+    if (player.name===playerName) return{ // CR - try use ternary...
+        ...player, 
         health: newHealth,
     };
     else return player ;
