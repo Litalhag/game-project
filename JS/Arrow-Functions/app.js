@@ -20,7 +20,7 @@ const getTotalInventoryValue = (items) => {
 
 //4
 
-let sortedItems = items.sort((a, b) => {
+let sortedItems = items.sort((a, b) => { // CR - why let? Only const!!!
   return b.value - a.value;
 });
 
