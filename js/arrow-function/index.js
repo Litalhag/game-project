@@ -48,12 +48,12 @@ const getTotalInventoryValue = (items) => {
 };
 //--------------------------------------------------------------------------------
 // Exercise 4:
-let sortedItems1 = items.sort(function (a, b) {
+const sortedItems1 = items.sort(function (a, b) {
   return b.value - a.value;
 });
 
 // arrow function:
-let sortedItems = items.sort((a, b) => b.value - a.value);
+const sortedItems = items.sort((a, b) => b.value - a.value);
 //--------------------------------------------------------------------------------
 // Exercise 5:
 function getItemNames(items) {
