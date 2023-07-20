@@ -48,12 +48,13 @@ const getTotalInventoryValue = (items) => {
 };
 //--------------------------------------------------------------------------------
 // Exercise 4:
-const sortedItems1 = items.sort(function (a, b) {
+let sortedItems1 = items.sort(function (a, b) {
+  // CR - My eyes!!! Why let? Why?? We hate let!
   return b.value - a.value;
 });
 
 // arrow function:
-const sortedItems = items.sort((a, b) => b.value - a.value);
+let sortedItems = items.sort((a, b) => b.value - a.value); // CR - don't use let... It hearts my eyes...
 //--------------------------------------------------------------------------------
 // Exercise 5:
 function getItemNames(items) {
