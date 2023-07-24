@@ -20,3 +20,9 @@ function trimDescription(description, maxLength){
     return description.slice(0,newStrLastIndex)+'...';
 }
 console.log(trimDescription("Retrieve the sacred artifact from the dragon's lair. But beware,the dragon is cunning and powerful.",50));
+
+let a=2;
+let b=4;
+[a,b]=[b,a];
+console.log(a);
+console.log(b);

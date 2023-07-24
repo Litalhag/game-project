@@ -36,9 +36,9 @@ const players = [
     },
   ];
 // 1
-const arrOfPlayers= players=> players.map(player=> player.name);
+const arrOfPlayers= players.map(player=> player.name);
 // check
-console.log(arrOfPlayers(players));
+console.log(arrOfPlayers);
 
 // 2
 const arrPlayerLevel=(players,minLevel)=>
@@ -48,25 +48,24 @@ console.log(' question 2');
 console.log(arrPlayerLevel(players,2));
 
 // 3
-const totalHealth=players=>players.reduce((totalHealth,player)=>totalHealth+player.health,0);
+const totalHealth=players.reduce((totalHealth,player)=>totalHealth+player.health,0);
 // check
 console.log(' question 3');
-console.log(totalHealth(players));
+console.log(totalHealth);
 
 // 4
-const namesAndLevels= players=>players.map(player=>`${player.name} - level ${player.level}`);
+const namesAndLevels= players.map(player=>`${player.name} - level ${player.level}`);
 // check
 console.log(' question 4');
-console.log(namesAndLevels(players));
+console.log(namesAndLevels);
 
 // 5
-const updatePlayerHealth= (players,newHealth,playerName)=> players.map (player=> {
-    if (player.name===playerName) return{ // CR - try use ternary....
-        ...player, 
-        health: newHealth,
-    };
-    else return player ;
-});
+const updatePlayerHealth= (players,newHealth,playerName)=> players.map (player=> player.name===playerName? {...player,health:newHealth}: player);
+    // if (player.name===playerName) return{ // CR - try use ternary....
+    //     ...player, 
+    //     health: newHealth,
+    // };
+    // else return player ;
 // check
 console.log(' question 5');
 console.log(updatePlayerHealth(players,150,'Hero'));

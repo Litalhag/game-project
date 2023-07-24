@@ -66,14 +66,7 @@ console.log (splitMonsters("Goblin, Orc, Dragon"));
 
 // 10
 function decodeSecret(secret){
-    const arr=[...secret];
     const mapping = { '1': 'i', '2': 'b', '3': 'e', '4': 'a', '5': 'e' };
-    const newArr=arr.map((char)=>{
-        if (mapping[char]){
-            return mapping [char];
-        }
-        return char;
-    });
-    return newArr.join("");
+    return secret.split('').map(char=>mapping[char]||char).join("");
 }
 console.log(decodeSecret("Th3 s3cr3t l1r3 1s und3r th3 br1dg3"));
