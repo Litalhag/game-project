@@ -62,8 +62,8 @@ console.log(
 // in short:
 const updatedHealth = (players, newHealth, playerName) =>
   players.map((player) =>
-    player.name === player.name //checks if the name property of the player object is equal to itself.
-      ? { ...player, health: (player.health += newHealth) }
+    player.name === playerName //checks if the name property of the player object is equal to itself.
+      ? { ...player, health: newHealth }
       : player
   );
 // console log:
