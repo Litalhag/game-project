@@ -129,3 +129,39 @@ const sumEvenMatrix = (matrix) => {
 };
 
 console.log(sumEvenMatrix(matrix));
+
+// 8.
+
+const questsRewards = [
+  { name: "Quest 1", reward: 50 },
+  { name: "Quest 2", reward: 100 },
+  { name: "Quest 3", reward: 75 },
+];
+
+const findHighestReward = (questsRewards, questReward) => {
+  for (let i = 0; i < questsRewards.length; i++) {
+    if (questsRewards[i].reward > questReward) {
+      return questsRewards[i];
+    }
+  }
+};
+
+console.log(findHighestReward(questsRewards, 80));
+
+// 9.
+
+const EnemyPower = [
+  { name: "Enemy 1", power: 50 },
+  { name: "Enemy 2", power: 80 },
+  { name: "Enemy 3", power: 65 },
+];
+
+const sumEnemyPower = (EnemyPower) => {
+  let totalPower = 0;
+  for (let i = 0; i < EnemyPower.length; i++) {
+    totalPower += EnemyPower[i].power;
+  }
+  return totalPower;
+};
+
+console.log(sumEnemyPower(EnemyPower));
