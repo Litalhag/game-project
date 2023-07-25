@@ -7,7 +7,7 @@ const quests = [
 
 const calculateTotalExperience = (questArray) => {
   let = totalExperience = 0; //initialize a variable to keep track of the total experience and set it to 0
-
+  // CR - you have a mistake. Whay 'let = totalExperience'? But otherwise, the solution is right 💪🏻
   for (let i = 0; i < questArray.length; i++) {
     //iterate over each quest object in the input array
     totalExperience += questArray[i].experience; //access each quest object experience property and add its value to the totalExperience
@@ -29,12 +29,13 @@ const findQuestByName = (questArray, questName) => {
       return questArray[i];
     }
   }
+  // CR - usually, we return 'null' if there is no match, so here you could have write 'return null', but otherwise your solution is perfect 👌 
 };
 
-console.log(findQuestByName(quests, "Quest 2"));
+console.log(findQuestByName(quests, "Quest 2")); // CR - if you initialized a variable in line 21, you could use it here...
 //---------------------------------------------------------------
 // Exercise 3: Sort Quests by Experience
-const sortQuestsByExperience = (quests) => {
+const sortQuestsByExperience = (quests) => { // CR - great 💪🏻
   for (let i = 0; i < quests.length; i++) {
     for (let j = 0; j < quests.length - i - 1; j++) {
       if (quests[j].experience > quests[j + 1].experience) {
@@ -60,7 +61,7 @@ function enemiesHealth(enemies, healthThreshold) {
     }
   }
   return matchingEnemies;
-}
+} // CR - perfect
 
 const enemies = [
   { name: "Enemy 1", health: 80 },
@@ -86,7 +87,17 @@ function sumMatrix(matrix) {
 
   return sum;
 }
-
+/* CR - you got it! Great. Here is another way to solve this, since it uses less code... This approach avoids creating additional variables:
+function calculateMatrixSum(matrix) {
+  let sum = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      sum += matrix[i][j];
+    }
+  }
+  return sum;
+}
+*/
 const matrix = [
   [1, 2, 3],
   [4, 5, 6],
@@ -111,6 +122,20 @@ function findMaxMatrix(matrixToFindMax) {
   }
   return maxValue;
 }
+/*
+CR - again, your solution is right, but here's a better way to solve this:
+function findMaximumValueInMatrix(matrix) {
+  let max = matrix[0][0];
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] > max) {
+        max = matrix[i][j];
+      }
+    }
+  }
+  return max;
+}
+*/
 
 const matrixToFindMax = [
   [10, 5, 8],
@@ -136,6 +161,21 @@ function evenNumbers(matrixToCountEven) {
   return evenCount;
 }
 
+/*
+CR- again, your solution is right, but this is the better way to solve this:
+function countEvenNumbersInMatrix(matrix) {
+  let count = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] % 2 === 0) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+*/
+
 const matrixToCountEven = [
   [1, 2, 3],
   [4, 5, 6],
@@ -153,7 +193,7 @@ function findHigherRewards(questsToFilter, rewardThreshold) {
     }
   }
   return matching;
-}
+} // CR - absolutely fabulous 💪🏻
 
 const questsToFilter = [
   { name: "Quest 1", reward: 50 },
@@ -172,7 +212,7 @@ function totalPower(enemyObjects) {
   }
 
   return totalPower;
-}
+} // CR - superb 💪🏻
 
 const enemyObjects = [
   { name: "Enemy 1", power: 50 },
