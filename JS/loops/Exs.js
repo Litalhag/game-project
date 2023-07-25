@@ -7,7 +7,7 @@ const calculatesTheTotal = (quests) => {
     }
   }
   return totalExperience;
-};
+}; // CR - great!
 console.log(
   calculatesTheTotal([
     { name: "Quest 1", experience: 100 },
@@ -23,7 +23,7 @@ const questByName = (quests, questName) => {
       return quest;
     }
   }
-  return null;
+  return null; // CR - great!!! It is important to deal with a situation that there is no match. Great thinking 💪🏻
 };
 const quests = [
   { name: "Quest 1", experience: 100 },
@@ -46,7 +46,7 @@ const sortsTheArray = (quests) => {
     }
   }
   return quests;
-};
+}; // CR - 👏🏻
 console.log(sortsTheArray(quests));
 
 //Ex-4
@@ -58,7 +58,7 @@ const findsAllEnemy = (arr, threshold) => {
     }
   }
   return newarray;
-};
+}; // CR - 🥳
 
 const enemies = [
   { name: "Enemy 1", health: 80 },
@@ -74,7 +74,7 @@ const calculatesTheSum = (matrix) => {
   let sum = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      sum += matrix[i][j];
+      sum += matrix[i][j]; //  CR - amazing!
     }
   }
   return sum;
@@ -93,7 +93,7 @@ const findsTheMaximum = (matrix) => {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (biggest < matrix[i][j]) {
-        biggest = matrix[i][j];
+        biggest = matrix[i][j]; // CR - superb 👏🏻
       }
     }
   }
@@ -112,7 +112,7 @@ const evenNumbersInMatrix = (matrix) => {
   let count = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] % 2 === 0) {
+      if (matrix[i][j] % 2 === 0) { // CR - great 🥳
         count++;
       }
     }
@@ -137,7 +137,7 @@ const findQuestsWithHighRewards = (arr, threshold) => {
     }
   }
   return newarray;
-};
+}; // CR - beautiful 👏🏻
 console.log(
   findQuestsWithHighRewards(
     [
@@ -155,7 +155,7 @@ const calculateTotalEnemyPower = (arr) => {
     sum += enemy.power;
   }
   return sum;
-};
+}; // CR - very good 👋 
 console.log(
   calculateTotalEnemyPower([
     { name: "Enemy 1", power: 50 },
@@ -193,7 +193,7 @@ const movePlayer = (matrix, position, direction) => {
   }
 
   return newPosition;
-};
+}; // CR - this is the right solution, but a better way to solve this would be with a switch case...
 
 console.log(
   movePlayer(
