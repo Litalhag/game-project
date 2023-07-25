@@ -38,12 +38,23 @@ const enemyHP = 50;
 const enemyAttack = 15;
 
 const battleSimulation=(playerHP,playerAttack,enemyHP,enemyAttack)=>{
+    // CR - Problem: Check if players are alive, not if they can withstand the next attack
     while (playerHP>=enemyAttack&& enemyHP>=playerAttack){
-        enemyHP-=playerAttack;
-        playerHP-=enemyAttack;
-    }
+        enemyHP-=playerAttack; // CR - Correct: Decrease enemy's health by player's attack
+        playerHP-=enemyAttack; // CR -Correct: Decrease player's health by enemy's attack
+    } 
+    // CR - Problem: If both die together, player should win as they attack first
     return enemyHP<playerHP? 'player wins': 'enemy wins';
 }
+// CR - Here's the corrected code:
+const battleSimulation=(playerHP,playerAttack,enemyHP,enemyAttack)=>{
+    while (playerHP > 0 && enemyHP > 0){
+        enemyHP -= playerAttack;
+        if (enemyHP > 0) playerHP -= enemyAttack;
+    }
+    return playerHP > 0 ? 'Player wins' : 'Enemy wins';
+}
+
 
 // check
 console.log(battleSimulation(100,20,50,50));
