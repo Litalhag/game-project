@@ -167,29 +167,33 @@ console.log(
 const movePlayer = (matrix, position, direction) => {
   let newPosition = position;
 
-  if (direction === "north") {
-    if (newPosition.y == 0) {
-      return "You Cannot go north its outside boundaries";
-    }
-    newPosition.y -= 1;
-  }
-  if (direction === "south") {
-    if (newPosition.y == 2) {
-      return "You Cannot go south its outside boundaries";
-    }
-    newPosition.y += 1;
-  }
-  if (direction === "east") {
-    if (newPosition.x == 2) {
-      return "You Cannot go east its outside boundaries";
-    }
-    newPosition.x += 1;
-  }
-  if (direction === "west") {
-    if (newPosition.x == 0) {
-      return "You Cannot go west its outside boundaries";
-    }
-    newPosition.x -= 1;
+  switch (direction) {
+    case "north":
+      if (newPosition.y === 0) {
+        return "You cannot go north, it's outside boundaries";
+      }
+      newPosition.y -= 1;
+      break;
+    case "south":
+      if (newPosition.y === matrix[0].length - 1) {
+        return "You cannot go south, it's outside boundaries";
+      }
+      newPosition.y += 1;
+      break;
+    case "west":
+      if (newPosition.x === matrix.length - 1) {
+        return "You cannot go west, it's outside boundaries";
+      }
+      newPosition.x += 1;
+      break;
+    case "east":
+      if (newPosition.x === 0) {
+        return "You cannot go east, it's outside boundaries";
+      }
+      newPosition.x -= 1;
+      break;
+    default:
+      return "Invalid direction";
   }
 
   return newPosition;
@@ -251,5 +255,16 @@ console.log(
     ],
     { x: 0, y: 0 },
     "north"
+  )
+);
+console.log(
+  movePlayer(
+    [
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 0],
+    ],
+    { x: 0, y: 0 },
+    "east"
   )
 );
