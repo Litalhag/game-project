@@ -16,6 +16,14 @@ const groupCharactersByLevel =(characters)=>characters.reduce((accum, character)
 }, {});
 console.log("question 1");
 console.log(groupCharactersByLevel(characters));
+// solution
+// function groupCharactersByLevel(characters) {
+//   return characters.reduce((acc, character) => {
+//     acc[character.level] = acc[character.level] || [];
+//     acc[character.level].push(character);
+//     return acc;
+//   }, {});
+// }
 
 // 2
 const findHighestLevelCharacter=(characters)=>(characters.reduce((HighestLevelCharacter,character)=>( character.level>HighestLevelCharacter.level? character : HighestLevelCharacter)));
@@ -60,8 +68,13 @@ console.log(countTotalNumberOfSkills(characters2));
 const findUniqueSkills= (characters)=>{
   const skillsArr= characters.reduce((skillsArr,character)=>skillsArr.concat(character.skills),[]);
   return [...new Set(skillsArr)];
-
 };
+
+// option 2
+// function findUniqueSkills(characters) {
+//   return [...new Set(characters.flatMap(character => character.skills))];
+// }
+
 // const findUniqueSkills= (characters)=>characters.reduce((skillsArr,character)=>skillsArr.concat(character.skills),[]).reduce(((uniqueSkillsArr,skill)=>uniqueSkillsArr.includes(skill)? uniqueSkillsArr : uniqueSkillsArr.push(skill)),[]);
 
 // const findUniqueSkills= (characters)=>characters.reduce(((uniqueSkillsArr, character)=>{
@@ -69,6 +82,7 @@ const findUniqueSkills= (characters)=>{
 //     if (skillsArr.includes(skill)) return skillsArr;
 //     else  return skillsArr.push(skill);}),[]);
 //   return uniqueSkillsArr.concat(skillsArr);}),[]);
+
 // check
 console.log("question 8");
 console.log(findUniqueSkills(characters2));

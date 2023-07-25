@@ -17,3 +17,33 @@ const movePlayer = (gameWorldGrid, currentPosition, direction) => {
     }
     return currentPosition;
 }
+// 1
+// 2D grid representing the game world
+const grid = [
+  [0, 2, 0],
+  [1, 3, 0],
+  [0, 2, 0]
+];
+
+// Player's current position
+const playerPosition = { x: 1, y: 1 };
+
+// 2
+// Player's HP and Attack Power
+const playerHP = 100;
+const playerAttack = 20;
+
+// Enemy's HP and Attack Power
+const enemyHP = 50;
+const enemyAttack = 15;
+
+const battleSimulation=(playerHP,playerAttack,enemyHP,enemyAttack)=>{
+    while (playerHP>=enemyAttack&& enemyHP>=playerAttack){
+        enemyHP-=playerAttack;
+        playerHP-=enemyAttack;
+    }
+    return enemyHP<playerHP? 'player wins': 'enemy wins';
+}
+
+// check
+console.log(battleSimulation(100,20,50,50));
