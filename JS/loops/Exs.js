@@ -112,7 +112,8 @@ const evenNumbersInMatrix = (matrix) => {
   let count = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] % 2 === 0) { // CR - great 🥳
+      if (matrix[i][j] % 2 === 0) {
+        // CR - great 🥳
         count++;
       }
     }
@@ -155,7 +156,7 @@ const calculateTotalEnemyPower = (arr) => {
     sum += enemy.power;
   }
   return sum;
-}; // CR - very good 👋 
+}; // CR - very good 👋
 console.log(
   calculateTotalEnemyPower([
     { name: "Enemy 1", power: 50 },
@@ -268,3 +269,19 @@ console.log(
     "east"
   )
 );
+
+//Extra -2
+const battleSimulation = (nadiahp, enemyhp, nadiaattack, enemyattack) => {
+  while (nadiahp > 0 && enemyhp > 0) {
+    enemyhp -= nadiaattack;
+    nadiahp -= enemyattack;
+  }
+  if (nadiahp <= 0 && enemyhp <= 0) {
+    console.log("It's a teko!");
+  } else if (nadiahp <= 0) {
+    console.log("Enemy wins!");
+  } else {
+    console.log("Nadia wins!");
+  }
+};
+battleSimulation(100, 50, 20, 15);
