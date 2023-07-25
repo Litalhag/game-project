@@ -20,8 +20,9 @@ console.log(totalPlayerExperience(quests));
 // 2
 const questByName=(questsArr,questName)=>{
     for (let i=0; i<questsArr.length; i++){
-        if (questsArr[i].name===questName) return questsArr[i];
+        if (questsArr[i].name===questName) return questsArr[i]; // CR - I love it! Good use of this syntax! 👏🏻
     }
+    // CR - here you should have added 'return null' for a case there is no match
 }
 // check
 console.log('question 2');
@@ -70,7 +71,7 @@ const sumMatrix= (matrix)=>{
     let sum=0;
     for( let i=0; i<matrix.length; i++){
         for (let j=0; j<matrix[i].length; j++){
-            sum+=matrix[i][j];
+            sum+=matrix[i][j]; //  CR - great 💪🏻
         }
     }
     return sum;
@@ -90,7 +91,7 @@ const maxValue= (matrix)=>{
     let max=0;
     for( let i=0; i<matrix.length; i++){
         for (let j=0; j<matrix[i].length; j++){
-            if (matrix[i][j]>max) max=matrix[i][j];
+            if (matrix[i][j]>max) max=matrix[i][j]; // CR - in this case this syntax is less readable...
         }
     }
     return max;
@@ -104,7 +105,7 @@ const evenNum= (matrix)=>{
     let count=0;
     for( let i=0; i<matrix.length; i++){
         for (let j=0; j<matrix[i].length; j++){
-            if(matrix[i][j]%2==0) count++;
+            if(matrix[i][j]%2==0) count++; // CR - here it is fine
         }
     }
     return count;
@@ -122,7 +123,7 @@ const questsToFilter = [
 const highRewards=(rewardsArray,threshold)=>{
     const newArr=[];
     for (i=0; i<rewardsArray.length; i++){
-        if (rewardsArray[i].reward>threshold)
+        if (rewardsArray[i].reward>threshold) // CR - if there is a line break you need to put {}
             newArr.push(rewardsArray[i]);
     }
     return newArr;
