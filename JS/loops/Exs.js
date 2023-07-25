@@ -285,3 +285,24 @@ const battleSimulation = (nadiahp, enemyhp, nadiaattack, enemyattack) => {
   }
 };
 battleSimulation(100, 50, 20, 15);
+
+//Extra-3
+const findEnemies = (grid) => {
+  let enemiesArray = [];
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      if (grid[i][j] === 2) {
+        enemiesArray.push({ x: i, y: j });
+      }
+    }
+  }
+  return enemiesArray;
+};
+
+console.log(
+  findEnemies([
+    [0, 2, 0],
+    [1, 0, 0],
+    [0, 2, 0],
+  ])
+);
