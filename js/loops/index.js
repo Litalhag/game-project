@@ -6,8 +6,7 @@ const quests = [
 ];
 
 const calculateTotalExperience = (questArray) => {
-  let = totalExperience = 0; //initialize a variable to keep track of the total experience and set it to 0
-  // CR - you have a mistake. Whay 'let = totalExperience'? But otherwise, the solution is right 💪🏻
+  let totalExperience = 0; //initialize a variable to keep track of the total experience and set it to 0
   for (let i = 0; i < questArray.length; i++) {
     //iterate over each quest object in the input array
     totalExperience += questArray[i].experience; //access each quest object experience property and add its value to the totalExperience
@@ -29,13 +28,14 @@ const findQuestByName = (questArray, questName) => {
       return questArray[i];
     }
   }
-  // CR - usually, we return 'null' if there is no match, so here you could have write 'return null', but otherwise your solution is perfect 👌 
+  return null;
 };
-
-console.log(findQuestByName(quests, "Quest 2")); // CR - if you initialized a variable in line 21, you could use it here...
+// CR - usually, we return 'null' if there is no match, so here you could have write 'return null'.
+console.log(findQuestByName(quests, questName)); // CR - if you initialized a variable in line 21, you could use it here...
 //---------------------------------------------------------------
 // Exercise 3: Sort Quests by Experience
-const sortQuestsByExperience = (quests) => { // CR - great 💪🏻
+const sortQuestsByExperience = (quests) => {
+  // CR - great 💪🏻
   for (let i = 0; i < quests.length; i++) {
     for (let j = 0; j < quests.length - i - 1; j++) {
       if (quests[j].experience > quests[j + 1].experience) {
@@ -61,7 +61,7 @@ function enemiesHealth(enemies, healthThreshold) {
     }
   }
   return matchingEnemies;
-} // CR - perfect
+}
 
 const enemies = [
   { name: "Enemy 1", health: 80 },
@@ -223,8 +223,105 @@ const enemyObjects = [
 console.log(totalPower(enemyObjects));
 //-----------------------------------------------------------------
 // Extra ex 1:
+function movePlayer(gamerGrid, playerPosition, direction) {
+  if (direction === "north" && playerPosition.y - 1 >= 0) {
+    playerPosition.y -= 1;
+  } else if (direction === "south" && playerPosition.y + 1 < gameGrid.length) {
+    playerPosition += 1;
+  } else if (direction === "east" && playerPosition.x + 1 < gameGrid.length) {
+    playerPosition.x += 1;
+  } else if (direction === "west" && playerPosition.x - 1 >= 0) {
+    playerPosition.x -= 1;
+  } else {
+    console.log("out of boundaries");
+  }
+  return playerPosition;
+}
+
 const gameGrid = [
-  [0, 0, 0],
-  [0, 1, 0],
-  [0, 0, 0],
+  [0, 2, 0],
+  [1, 3, 0],
+  [0, 2, 0],
 ];
+
+console.log(movePlayer(gameGrid, { x: 1, y: 1 }, "north"));
+//-----------------------------------------------------------------
+// Extra ex 2:
+// input: playerHP: 100, playerAttack: 20, enemyHP: 50, enemyAttack: 15
+function battle(playerHP, playerAttack, enemyHP, enemyAttack) {
+  while (playerHP > 0 && enemyHP > 0) {
+    enemyHP -= playerAttack; // player attacks first
+    if (enemyHP <= 0) {
+      //Checking if enemyHP <= 0 after playerAttack
+      return "player wins";
+    }
+    playerHP -= enemyAttack; // Enemy attacks
+    if (playerHP <= 0) {
+      // checking if playerHP <= 0 after enemy attacks
+      return "enemy wins";
+    }
+  }
+}
+console.log(battle(100, 20, 50, 15));
+//-----------------------------------------------------------------
+// Extra ex 3: // output: [{x: 0, y: 1}, {x: 2, y: 1}]
+// 0 = an empty space, 1 = the player, and 2 = an enemy
+function findEnemies(gameWorld) {
+  const enemies = [];
+  for (let row = 0; row < gameWorld.length; row++) {
+    for (let column = 0; column < gameWorld[row].length; column++) {
+      if (gameWorld[row][column] === 2) {
+        const enemyLocation = { x: row, y: column };
+        enemies.push(enemyLocation);
+      }
+    }
+  }
+  return enemies;
+}
+
+const gameWorld = [
+  [0, 2, 0],
+  [1, 0, 0],
+  [0, 2, 0],
+];
+
+console.log(findEnemies(gameWorld));
+//-----------------------------------------------------------------
+// Extra ex 4:
+// Output: ['west', 'south']
+function pathToGo(playerPosition, goalPosition) {
+  const arrayPath = [];
+  while (
+    playerPosition.x !== goalPosition.x ||
+    playerPosition.y != goalPosition.y
+  ) {
+    // calculate distances both x & y
+    const xRow = goalPosition.x - playerPosition.x;
+    const yColumn = goalPosition.y - playerPosition.y;
+
+    // y column - north, south
+    if (yColumn < 0) {
+      playerPosition.y = playerPosition.y - 1;
+      arrayPath.push("north");
+    } else if (yColumn > 0) {
+      playerPosition.y = playerPosition.y + 1;
+      arrayPath.push("south");
+    }
+
+    // x row - east, west
+    if (xRow > 0) {
+      playerPosition.x = playerPosition.x + 1;
+      arrayPath.push("east");
+    } else if (xRow < 0) {
+      playerPosition.x = playerPosition.x - 1;
+      arrayPath.push("west");
+    }
+  }
+  return arrayPath;
+}
+
+const playerPosition = { x: 1, y: 1 };
+const goalPosition = { x: 0, y: 2 };
+
+const pathToGoal = pathToGo(playerPosition, goalPosition);
+console.log(pathToGoal);
