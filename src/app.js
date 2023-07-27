@@ -11,13 +11,16 @@ const gameWorld = {
    * Add a new player to the game world
    * @param {Object} player - The player object
    */
-  addPlayer: function (player) {},
-
+  addPlayer: function (player) {
+    this.players.push(player);
+  },
   /**
    * Remove a player from the game world
    * @param {Object} player - The player object
    */
-  removePlayer: function (player) {},
+  removePlayer: function (player) {
+    this.players=this.players.filter(element=> element.name!==player.name);
+  },
 
   /**
    * Add a new enemy to the game world
@@ -41,7 +44,9 @@ const gameWorld = {
    * Remove an item from the game world
    * @param {Object} item - The item object
    */
-  removeItem: function (item) {},
+  removeItem: function (item) {
+    this.items=this.items.filter(itemObj=> itemObj.name!==item.name);
+  },
 
   /**
    * Add a new NPC to the game world
@@ -146,3 +151,8 @@ const gameWorld = {
    */
   createNPC: function (name, health, position, inventory, dialog) {},
 };
+gameWorld.addPlayer({name: "John", health: 100});
+console.log(gameWorld.players);
+
+gameWorld.removePlayer({name: "John", health: 100});
+console.log(gameWorld.players);
