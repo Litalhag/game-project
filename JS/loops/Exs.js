@@ -352,3 +352,4 @@ const findPathToGoal = (playerPositions, goalPosition) => {
   return paths;
 };
 console.log(findPathToGoal({ x: 1, y: 1 }, { x: 0, y: 2 }));
+//
