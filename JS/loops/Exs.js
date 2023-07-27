@@ -292,7 +292,7 @@ const findEnemies = (grid) => {
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === 2) {
-        enemiesArray.push({ x: i, y: j });
+        enemiesArray.push({ x: j, y: i });
       }
     }
   }
@@ -306,3 +306,49 @@ console.log(
     [0, 2, 0],
   ])
 );
+//Ex-4
+// const findPathToGoal = (current, goal) => {
+//   const Arr = [];
+//   while (current.x !== goal.x || current.y !== goal.y) {
+//     if (current.x > goal.x) {
+//       current.x--;
+//       Arr.push("west");
+//     } else if (current.x < goal.x) {
+//       current.x++;
+//       Arr.push("east");
+//     } else if (current.y < goal.y) {
+//       current.y++;
+//       Arr.push("south");
+//     } else if (current.y > goal.y) {
+//       current.y--;
+//       Arr.push("north");
+//     }
+//   }
+//   return Arr;
+// };
+// console.log(findPathToGoal({ x: 1, y: 1 }, { x: 0, y: 2 }));
+
+const findPathToGoal = (playerPositions, goalPosition) => {
+  const paths = [];
+
+  let { x, y } = playerPositions;
+
+  while (x > goalPosition.x) {
+    paths.push("west");
+    x--;
+  }
+  while (x < goalPosition.x) {
+    paths.push("east");
+    x++;
+  }
+  while (y < goalPosition.y) {
+    paths.push("south");
+    y++;
+  }
+  while (y > goalPosition.y) {
+    paths.push("north");
+    y--;
+  }
+  return paths;
+};
+console.log(findPathToGoal({ x: 1, y: 1 }, { x: 0, y: 2 }));
