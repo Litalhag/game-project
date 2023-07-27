@@ -2,9 +2,28 @@
  * This object represents the game world, containing all players, enemies, items and NPCs
  */
 const gameWorld = {
-  players: [],
-  enemies: [],
-  items: [],
+  players: [
+    {
+      name: "Hero",
+      health: 100,
+      location: "forest",
+      inventory: ["sword", "health potion"],
+    },
+  ],
+  enemies: [
+    {
+      name: "enemy",
+      health: 80,
+      location: "castle",
+      inventory: ["axe", "health potion"],
+    },
+  ],
+  items: [
+    {
+      name: "health potion",
+      effect: "heals hp",
+    },
+  ],
   npcs: [],
 
   /**
@@ -23,13 +42,19 @@ const gameWorld = {
    * Add a new enemy to the game world
    * @param {Object} enemy - The enemy object
    */
-  addEnemy: function (enemy) {},
+  addEnemy: function (enemy) {
+    this.enemies.push(enemy);
+  },
 
   /**
    * Remove an enemy from the game world
    * @param {Object} enemy - The enemy object
    */
-  removeEnemy: function (enemy) {},
+  removeEnemy: function (enemy) {
+    this.enemies = this.enemies.filter(
+      (enemyObject) => enemyObject.name !== enemy.name
+    );
+  },
 
   /**
    * Add a new item to the game world
@@ -41,7 +66,9 @@ const gameWorld = {
    * Remove an item from the game world
    * @param {Object} item - The item object
    */
-  removeItem: function (item) {},
+  removeItem: function (item) {
+    this.items = this.items.filter();
+  },
 
   /**
    * Add a new NPC to the game world
