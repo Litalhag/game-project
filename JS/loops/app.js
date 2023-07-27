@@ -24,7 +24,7 @@ const findQuest = (quests, questName) => {
       return quests[i];
     }
   }
-  // CR - here you shold return null if there is no match 
+  // CR - here you shold return null if there is no match
 };
 
 console.log(findQuest(quests, "Quest 3"));

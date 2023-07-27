@@ -35,7 +35,7 @@ const battleSimulator = (playerHP, playerAttack, enemyHP, enemyAttack) => {
 
 console.log(battleSimulator(100, 20, 50, 15));
 
-//3
+//3 find Enemies
 
 function findEnemies(gameWorld) {
   const enemies = [];
@@ -59,16 +59,9 @@ console.log(enemiesList);
 
 // 4
 
-const findPathToGoal = (playerPosition, goalPosition) => {
-const 
-};
+// const findPathToGoal = (playerPosition, goalPosition) => {
+//
+// };
 
-console.log(findPathToGoal({ x: 1, y: 1 }, { x: 0, y: 2 }));
-
-
-const gameWorld2 = [
-  [0, 2, 0],
-  [1, 0, 0],
-  [0, 2, 0],
-];
-
+// console.log(findPathToGoal({ x: 1, y: 1 }, { x: 0, y: 2 }));
+// dont know how to do will come back later
