@@ -26,3 +26,18 @@ let b=4;
 [a,b]=[b,a];
 console.log(a);
 console.log(b);
+
+
+for (let i=0;i<5;i++){
+    setTimeout(function(){
+        console.log(i)},1000);
+}
+
+function double(x){
+    return x*2;
+}
+
+function some(num){
+    return double (num);
+}
+console.log('new',some(5));
