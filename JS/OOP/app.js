@@ -134,3 +134,32 @@ const strBooster = new StrengthElixir(
 );
 
 console.log(strBooster.use(cloud));
+
+// part 4 game class
+
+class Game {
+  constructor() {
+    (this.player = null), (this.enemies = []), (this.items = []);
+  }
+  startGame(playerName) {
+    this.player = new Player(playerName, 100, 60, 50);
+    console.log(this.player);
+  }
+  endGame() {
+    this.player = null;
+    this.enemies = [];
+    this.items = [];
+  }
+  spawnEnemy(enemyName, enemyHealth, enemyStrength) {
+    const newEnemy = new Enemy(enemyName, enemyHealth, enemyStrength, "Beast");
+    this.enemies.push(newEnemy);
+    console.log(this.enemies);
+  }
+}
+
+const firstGame = new Game();
+
+//tests
+
+firstGame.startGame("Barret Wallace");
+firstGame.spawnEnemy("behemoth", 200, 150);
