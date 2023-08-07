@@ -22,6 +22,12 @@ class Character {
       return `The ${item} that you insert wasn't found and can't be removed insert a different item`;
     }
   }
+
+  displayCharacter() {
+    return `The character is ${this.name} he has ${this.health} hp , ${
+      this.strenght
+    } attack power and has ${this.inventory.join(" and ")} in his inventory`;
+  }
 }
 
 const cloud = new Character("CloudStrife", 100, 75, [
@@ -34,11 +40,11 @@ const sephiroth = new Character("Sephiroth", 100, 10, [
 ]);
 
 //tests
-
 console.log(cloud.attack(sephiroth));
-console.log(cloud.addItem("iron shield"));
+cloud.addItem("iron shield");
 console.log(cloud);
 console.log(cloud.removeItem("healing potion"));
 console.log(cloud);
 console.log(cloud.removeItem("healing potion"));
 console.log(cloud);
+console.log(cloud.displayCharacter());
