@@ -15,13 +15,15 @@ function processEnemies(enemyArray,callback){
     if (!Array.isArray(enemyArray)) {
         throw new Error("Expected an array of enemies");
     }
-    for (let enemyObj of enemyArray){
-        if (!enemyObj.name||!enemyObj.health){
+    const newEnemies = JSON.parse(JSON.stringify(enemyArray));
+    for (let enemyObj of newEnemies){
+        if (enemyObj.name&&enemyObj.health){
+            callback(enemyObj);
+        }
+        else{
             throw new Error(`enemy with ID ${enemyObj.id} is not in the right structure`);
         }
     }
-    const newEnemies = JSON.parse(JSON.stringify(enemyArray));
-    newEnemies.forEach(callback);
     return newEnemies;
 };
 function newHealth(obj){
