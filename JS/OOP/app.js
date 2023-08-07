@@ -25,9 +25,7 @@ class Character {
   }
 
   displayCharacter() {
-    return `The character is ${this.name} he has ${this.health} hp , ${
-      this.strength
-    } attack power and has ${this.inventory.join(" and ")} in his inventory`;
+    return `Character's name: ${this.name} , health points: ${this.health}  , strength points: ${this.strength} , items in the inventory: ${this.inventory}`;
   }
 }
 
@@ -43,13 +41,10 @@ const sephiroth = new Character("Sephiroth", 100, 10, [
 //tests
 console.log(cloud.attack(sephiroth));
 cloud.addItem("iron shield");
-console.log(cloud);
+cloud.addItem("strength potion");
 console.log(cloud.removeItem("healing potion"));
-console.log(cloud);
-console.log(cloud.removeItem("healing potion"));
-console.log(cloud);
 console.log(cloud.displayCharacter());
-
+console.log(cloud);
 //part 2 - extending the character class and creating 2 new classes Player and Enemy Subclasses
 
 class Player extends Character {
@@ -57,10 +52,20 @@ class Player extends Character {
     super(name, health, strength);
     this.level = level;
   }
+
+  upgrade() {
+    this.level += 1;
+    this.health += 10;
+    this.strength += 5;
+  }
 }
 
 const tifa = new Player("tifa lockhart", 100, 65, 99);
 
+// player tests
+console.log(tifa.upgrade());
+console.log(tifa.upgrade());
+console.log(tifa.upgrade());
 console.log(tifa);
 
 class Enemy extends Character {
@@ -68,8 +73,17 @@ class Enemy extends Character {
     super(name, health, strength);
     this.type = type;
   }
+
+  displayCharacter() {
+    return (
+      super.displayCharacter() +
+      console.log(`Type of the enemy is: ${this.type}`)
+    );
+  }
 }
 
 const bahamut = new Enemy("Bahamut Zero", 100, 99, "mystical dragon");
 
-console.log(bahamut);
+//enemy tests
+
+console.log(bahamut.displayCharacter());
