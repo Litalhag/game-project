@@ -7,8 +7,20 @@ class Character {
   }
 
   attack(target) {
-    let targetRemaingHp = target.health - this.strenght;
-    return `${this.name} attacked ${target.name} successfully and his remaining hp is ${targetRemaingHp}`;
+    target.health -= this.strenght;
+    return `${this.name} attacked ${target.name} successfully and his remaining hp is ${target.health}`;
+  }
+
+  addItem(item) {
+    return this.inventory.push(item);
+  }
+  removeItem(item) {
+    if (this.inventory.indexOf(item) !== -1) {
+      const idx = this.inventory.indexOf(item);
+      return this.inventory.splice(idx, 1);
+    } else {
+      return `The ${item} that you insert wasn't found and can't be removed insert a different item`;
+    }
   }
 }
 
@@ -21,6 +33,12 @@ const sephiroth = new Character("Sephiroth", 100, 10, [
   "healing potion",
 ]);
 
-console.log(cloud, sephiroth);
+//tests
 
 console.log(cloud.attack(sephiroth));
+console.log(cloud.addItem("iron shield"));
+console.log(cloud);
+console.log(cloud.removeItem("healing potion"));
+console.log(cloud);
+console.log(cloud.removeItem("healing potion"));
+console.log(cloud);
