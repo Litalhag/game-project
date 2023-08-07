@@ -9,7 +9,8 @@ class Character {
   attack(target) {
     target.health -= this.strength;
     console.log(this.name + " attacked: " + target.name);
-    return target.health;
+    return target.health; // CR - the exercise says "It should return a string stating who attacked who and the remaining health of the target character."
+    // CR- like this -  return `${this.name} attacks ${target.name}. ${target.name} has ${target.health} health left.`;
   }
   addItem(item) {
     this.inventory.push(item);
@@ -58,7 +59,7 @@ class Enemy extends Character {
     this.type = type;
   }
   displayCharacter() {
-    super.displayCharacter() + console.log("The Type is:" + this.type);
+    super.displayCharacter() + console.log("The Type is:" + this.type); // CR - good job using super!
   }
 }
 
@@ -79,12 +80,13 @@ class Item {
   }
 }
 class HealthPotion extends Item {
-  constructor(itemName, itemDescription) {
+  constructor(itemName, itemDescription) { // CR - no need if there is no additional properties. If a child class does not specify a constructor, then the default constructor is used. 
+                                          // This default constructor calls the parent class constructor with all of the provided arguments.
     super(itemName, itemDescription);
   }
 
   use(character) {
-    super.use(character);
+    super.use(character); // CR- no need to call super. Polymorphism means that the child changes the parent's implementation.
     character.health += 30;
     console.log(`${character.name} health is now ${character.health}.`);
   }
@@ -95,7 +97,7 @@ class StrengthElixir extends Item {
   }
 
   use(character) {
-    super.use(character);
+    super.use(character); // CR- no need to call super. Polymorphism means that the child changes the parent's implementation.
     character.strength += 10;
     console.log(`${character.name}'s strength is now ${character.strength}.`);
   }
@@ -125,6 +127,11 @@ class Game {
   }
   spawnEnemy(enemyName, enemyHealth, enemyStrength) {
     this.enemies.push(new Enemy(enemyName, enemyHealth, enemyStrength));
+    /*
+      CR - this version is more readable:
+      const enemy = new Enemy(enemyName, enemyHealth, enemyStrength);
+      this.enemies.push(enemy);
+    */
   }
   spawnItem(itemName, itemDescription) {
     let item = null;
