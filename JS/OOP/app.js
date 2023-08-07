@@ -30,8 +30,8 @@ class Character {
 }
 
 const cloud = new Character("CloudStrife", 100, 75, [
-  "buster sword",
   "healing potion",
+  "buster sword",
 ]);
 const sephiroth = new Character("Sephiroth", 100, 10, [
   "The Masamune",
@@ -87,3 +87,50 @@ const bahamut = new Enemy("Bahamut Zero", 100, 99, "mystical dragon");
 //enemy tests
 
 console.log(bahamut.displayCharacter());
+
+// part 3 Item adding HealthPotion and StrengthElixir Classes
+
+class Item {
+  constructor(name, description) {
+    this.name = name;
+    this.description = description;
+  }
+  use(target) {
+    console.log(`${this.name} was used successfully on ${target.name}`);
+  }
+}
+
+const hpBooster = new Item(
+  "hp booster",
+  " increase the hp by 70 health points"
+);
+
+hpBooster.use(sephiroth);
+
+class HealthPotion extends Item {
+  use(character) {
+    const increasedHealth = character.health + 30;
+    return `${this.name} was used successfully on ${character.name} and his hp is now ${increasedHealth}`;
+  }
+}
+
+const hpPotion = new HealthPotion(
+  "hp potion",
+  " increase the hp by 30 health points"
+);
+
+console.log(hpPotion.use(cloud));
+
+class StrengthElixir extends Item {
+  use(character) {
+    const increasedStrength = character.strength + 10;
+    return `${this.name} was used successfully on ${character.name} and his strength is now ${increasedStrength}`;
+  }
+}
+
+const strBooster = new StrengthElixir(
+  "strength booster",
+  "increase the strength by 30 points"
+);
+
+console.log(strBooster.use(cloud));
