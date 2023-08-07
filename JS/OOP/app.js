@@ -6,12 +6,10 @@ class Character {
     this.strength = strength;
     this.inventory = [];
   }
-
   attack(target) {
     target.health -= this.strength;
     return `${this.name} attacked ${target.name} successfully and his remaining hp is ${target.health}`;
   }
-
   addItem(item) {
     return this.inventory.push(item);
   }
@@ -23,7 +21,6 @@ class Character {
       return `The ${item} that you insert wasn't found and can't be removed insert a different item`;
     }
   }
-
   displayCharacter() {
     return `Character's name: ${this.name} , health points: ${this.health}  , strength points: ${this.strength} , items in the inventory: ${this.inventory}`;
   }
@@ -142,7 +139,7 @@ class Game {
     (this.player = null), (this.enemies = []), (this.items = []);
   }
   startGame(playerName) {
-    this.player = new Player(playerName, 100, 60, 50);
+    this.player = new Player(playerName, 100, 80, 50);
     console.log(this.player);
   }
   endGame() {
@@ -155,11 +152,50 @@ class Game {
     this.enemies.push(newEnemy);
     console.log(this.enemies);
   }
+  spawnItem(itemName, itemDescription) {
+    let item;
+    if (itemName === "Health Potion") {
+      const newHpPotion = new HealthPotion(itemName, itemDescription);
+      item = newHpPotion;
+    } else if (itemName === "Strength Elixir") {
+      const newStrBooster = new StrengthElixir(itemName, itemDescription);
+      item = newStrBooster;
+    } else {
+      const newItem = new Item(itemName, itemDescription);
+      item = newItem;
+    }
+    this.items.push(item);
+    console.log(this.items);
+  }
+  playerPickUpItem(item) {
+    const idx = this.items.indexOf(item);
+    if (idx !== -1) {
+      this.items.splice(idx, 1);
+      this.player.addItem(item);
+      return `The ${item} that you insert was removed successfully and was added to the ${this.player.name} inventory`;
+    } else {
+      console.log(this.items);
+      return `The ${item} that you insert wasn't found and can't be removed insert a different item`;
+    }
+  }
+  playerUseItem(item, target) {
+    if (this.player.inventory.includes(item)) {
+      item.use(target);
+      this.player.removeItem(item);
+    }
+  }
+  playerAttack(enemy) {
+    this.player.attack(enemy);
+  }
 }
 
 const firstGame = new Game();
 
 //tests
-
 firstGame.startGame("Barret Wallace");
 firstGame.spawnEnemy("behemoth", 200, 150);
+firstGame.spawnItem("Strength Elixir", "increase the strength by 60 points");
+console.log(firstGame.playerPickUpItem(firstGame.items[0]));
+firstGame.playerUseItem(firstGame.player.inventory[0], firstGame.enemies[0]);
+firstGame.playerAttack(firstGame.enemies[0]);
+console.log(firstGame);
