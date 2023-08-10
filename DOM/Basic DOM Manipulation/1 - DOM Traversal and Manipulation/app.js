@@ -44,6 +44,8 @@ console.log(title);
 
 title.textContent = "DOM noob!";
 
+// 7 Updating Paragraph Content
+
 const div = myLiParent.nextElementSibling;
 
 console.log(div);
