@@ -55,7 +55,8 @@ class Enemy extends Character{
         this.type=type;
     }
     displayCharacter (){
-        return `characters name is ${this.name}, health: ${this.health}, strength points ${this.strength}, inventory: ${this.inventory.map(item=>item.name).join(',')} and type ${this.type}`;
+        const info=super.displayCharacter();
+        return `${info} and type ${this.type}`;
     }
 };
 
@@ -74,12 +75,14 @@ class Item {
 class HealthPotion extends Item {
     use (target){
         target.health+=30;
+        console.log(`${this.name} used on ${target.name}. ${target.name}'s health is now ${target.health}.`);
     }
 }
 
 class StrengthElixir extends Item{
     use (target){
         target.strength+=10;
+        console.log(`${this.name} used on ${target.name}. ${target.name}'s strength is now ${target.strength}.`);
     }
 }
 
@@ -119,11 +122,13 @@ class Game {
         i!=='-1'? this.items.splice(i,1): console.log (`${item} not found`);
     }
     playerUseItem (item,target){
-        this.player.removeItem(item);
-        item.use(target);
+        if (this.player.inventory.includes(item)) {
+            item.use(target);
+            this.player.removeItem(item);
+          }
     }
     playerAttack (enemy) {
-        this.player.attack(enemy);
+        return this.player.attack(enemy);
     }
 
 }
@@ -145,6 +150,7 @@ console.log(game.enemies[0].displayCharacter());
 // Player attacks the enemy
 console.log("Player attacks Goblin");
 console.log(game.playerAttack(game.enemies[0]));
+console.log(game.enemies[0].displayCharacter());
 
 // Spawn items
 console.log("Spawning items 'Health Potion' and 'Strength Elixir'");
