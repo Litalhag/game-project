@@ -1,0 +1,42 @@
+/* vars */
+:root {
+  --royal-blue: #266cd7;
+  --mustard-yellow: #d7ba26;
+  --green: #26d74d;
+  --pink: #d726d0;
+  --red: #d72626;
+  --purple: #9326d7;
+  --black: #000;
+  --white: #fff;
+  --max-width: 192rem;
+  --max-height: 108rem;
+  --modal-width: 55rem;
+  --modal-height: 55rem;
+  --modal-left-right-margin: 51.6rem;
+  --modal-margin-top: 15.2rem;
+  --modal-margin-bottom: 15.1rem;
+}
+
+body {
+  background: var(--black);
+  max-width: var(--max-width);
+  max-height: var(--max-height);
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  border: var(--red);
+  border-radius: 2rem;
+  background: var(--white);
+  width: var(--modal-width);
+  height: var(--modal-height);
+  margin-top: var(--modal-margin-top);
+  margin-bottom: var(--modal-margin-bottom);
+  margin-left: var(--modal-left-right-margin);
+  margin-right: var(--modal-left-right-margin);
+}
