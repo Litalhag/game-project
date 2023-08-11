@@ -23,6 +23,7 @@ body {
   background: var(--black);
   max-width: var(--max-width);
   max-height: var(--max-height);
+  position: absolute;
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -36,11 +37,11 @@ a {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   html {
     font-size: 50%;
   }
-}
+} */
 
 /* vars */
 :root {
