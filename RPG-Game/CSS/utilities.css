@@ -23,10 +23,6 @@ body {
   background: var(--black);
   max-width: var(--max-width);
   max-height: var(--max-height);
-<<<<<<< HEAD
-=======
-  position: absolute;
->>>>>>> 8272a8db152aca0062e136a35e9af977d4cc6312
   /* display: flex;
   justify-content: center;
   align-items: center; */
