@@ -23,9 +23,10 @@ body {
   background: var(--black);
   max-width: var(--max-width);
   max-height: var(--max-height);
-  display: flex;
+  position: absolute;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 ul {
@@ -68,7 +69,7 @@ a {
 }
 
 .modal {
-  border: var(--red);
+  position: relative;
   border-radius: 1.5rem;
   background: var(--white);
   width: var(--modal-width);
