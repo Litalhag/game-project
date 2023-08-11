@@ -1,1 +1,16 @@
+.modal-showcase {
+  grid-area: showcase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 39rem;
+  width: 100%;
+  background-color: green;
+}
 
+.modal-account {
+  height: 14.7rem;
+  width: 100%;
+  grid-area: modal-account;
+  background-color: blue;
+}
