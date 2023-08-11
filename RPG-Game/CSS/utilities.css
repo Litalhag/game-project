@@ -16,6 +16,8 @@ html {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   box-sizing: border-box;
   background: var(--black);
   font-family: "hwt-artz";
@@ -54,6 +56,7 @@ a {
 
 /* vars */
 :root {
+  --cream-gray: #d9d9d9;
   --royal-blue: #266cd7;
   --mustard-yellow: #d7ba26;
   --green: #26d74d;
@@ -76,20 +79,4 @@ a {
   /* display: flex;
   justify-content: center;
   align-items: center; */
-}
-
-.lobby {
-  max-width: var(--max-width);
-  max-height: var(--max-height);
-}
-
-.modal {
-  border-radius: 1.5rem;
-  background: var(--white);
-  width: var(--modal-width);
-  height: var(--modal-height);
-  margin-top: var(--modal-margin-top);
-  margin-bottom: var(--modal-margin-bottom);
-  margin-left: var(--modal-left-right-margin);
-  margin-right: var(--modal-left-right-margin);
 }
