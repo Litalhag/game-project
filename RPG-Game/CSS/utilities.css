@@ -18,6 +18,10 @@ html {
 body {
   box-sizing: border-box;
   background: var(--black);
+  font-family: "hwt-artz";
+  font-size: 2rem;
+  color: whitesmoke;
+  font-weight: 400;
 }
 
 ul {
@@ -34,6 +38,20 @@ a {
   }
 }
 
+@font-face {
+  font-family: "hwt-artz";
+  src: url("https://use.typekit.net/af/0951ac/00000000000000007735a49b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/0951ac/00000000000000007735a49b/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/0951ac/00000000000000007735a49b/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
 /* vars */
 :root {
   --royal-blue: #266cd7;
@@ -44,6 +62,7 @@ a {
   --purple: #9326d7;
   --black: #000;
   --white: #fff;
+  --main-font: HWT Artz;
   --max-width: 100vw;
   --max-height: 100vh;
   --modal-width: 88.8rem;
