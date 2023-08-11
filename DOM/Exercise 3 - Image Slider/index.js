@@ -1,5 +1,6 @@
-const slides = document.querySelectorAll(".slider img");
-const currentIndex = 0;
+const slides = document.querySelectorAll("img");
+console.log(slides);
+let currentIndex = 0;
 
 function moveSlide(direction) {
   slides[currentIndex].classList.remove("active");
@@ -9,4 +10,5 @@ function moveSlide(direction) {
   } else if (currentIndex >= slides.length) {
     currentIndex = slides.length - 1;
   }
+  slides[currentIndex].classList.add("active");
 }
