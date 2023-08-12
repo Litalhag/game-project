@@ -34,11 +34,11 @@ a {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   html {
     font-size: 50%;
   }
-}
+} */
 
 @font-face {
   font-family: "hwt-artz";

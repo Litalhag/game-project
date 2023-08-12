@@ -1,16 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
 .modal-showcase {
   grid-area: showcase;
   display: flex;
-  align-items: center;
-  justify-content: center;
   height: 39rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 7.3rem;
   width: 100%;
-  background-color: green;
+  background-color: white;
+}
+.modal-avatar {
+  margin-top: 8rem;
+}
+.modal-avatar-style {
+  width: 41rem;
+  height: 25.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.grid-images {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows */
+  grid-gap: 10px; /* Adjust the gap between images */
+}
+
+.images-box {
+  width: 7.5rem;
+  height: 7.5rem;
+  background-color: #f0f0f0;
+  /* You can add background images to the '.image' class if needed */
+}
+
+.scaled-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Scale image to fit the container while maintaining aspect ratio */
 }
 
 .modal-account {
   height: 14.7rem;
   width: 100%;
   grid-area: modal-account;
-  background-color: blue;
+  background-color: white;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+  margin-left: 4rem;
+  gap: 1.5rem;
+  height: 29rem;
+}
+input {
+  width: 32rem;
+  height: 5rem;
+  flex-shrink: 0;
+  background-color: var(--cream-gray);
+  border: none;
+}
+::placeholder {
+  color: #8f8f8f;
+  font-family: "Open Sans";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  padding: 1.3rem 7.6rem 1.2rem 1.3rem;
+}
+#passwordInput::placeholder {
+  color: #e00000;
+  font-family: "Open sans";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+label {
+  color: black;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+
+.input-type-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  top: 54%;
+  left: 28rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.horizontal-list {
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.horizontal-list li {
+  list-style-type: disc;
+  font-family: "Open Sans";
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#password-list-spc-chr {
+  color: #e00000;
+}
+#password-list-caps,
+#password-list-lowercase,
+#password-list-numbers {
+  color: #32a709;
+}
+
+.custom-button {
+  display: inline-block;
+  width: 23.6rem;
+  height: 5rem;
+  background: linear-gradient(to bottom, #66fa73, #0d8011);
+  border-radius: 0.8rem;
+  text-align: center;
+  line-height: 5rem;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0.4rem solid black;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0px 0.3rem 0.1rem rgba(0, 0, 0, 0.7);
+
+  color: #fff;
+  font-family: "hwt-artz";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.6rem;
+  letter-spacing: 0.09rem;
+  text-shadow: 0.08rem 0rem 0rem rgb(0, 0, 0),
+    0.05657rem 0.05657rem 0rem rgb(0, 0, 0), 0rem 0.08rem 0rem rgb(0, 0, 0),
+    -0.05657rem 0.05657rem 0rem rgb(0, 0, 0), -0.08rem 0rem 0rem rgb(0, 0, 0),
+    -0.05657rem -0.05657rem 0rem rgb(0, 0, 0), 0rem -0.08rem 0rem rgb(0, 0, 0),
+    0.05657rem -0.05657rem 0rem rgb(0, 0, 0);
+}
+.custom-button::before {
+  content: "";
+  position: absolute;
+  width: 22.9rem;
+  height: 3.5rem;
+  top: 0.3rem;
+  left: 0;
+  right: 0;
+  bottom: 0.3rem;
+  background: linear-gradient(to bottom, #3dbe42, #3bb827);
+  border-radius: 0.6rem;
+  filter: blur(0.1rem);
+  z-index: -1;
+}
+
+.modal-button {
+  display: flex;
+  justify-content: center;
+  margin-left: 21rem;
 }
