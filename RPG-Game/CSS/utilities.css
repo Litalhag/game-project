@@ -19,8 +19,8 @@ body {
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  background: var(--black);
-  font-family: "hwt-artz";
+  background: gray;
+  font-family: "hwt-artz", sans-serif;
   font-size: 2rem;
   color: whitesmoke;
   font-weight: 400;
@@ -34,28 +34,21 @@ a {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 800px) {
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* @media only screen and (max-width: 800px) {
   html {
     font-size: 50%;
   }
-}
-
-@font-face {
-  font-family: "hwt-artz";
-  src: url("https://use.typekit.net/af/0951ac/00000000000000007735a49b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
-      format("woff2"),
-    url("https://use.typekit.net/af/0951ac/00000000000000007735a49b/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
-      format("woff"),
-    url("https://use.typekit.net/af/0951ac/00000000000000007735a49b/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
-      format("opentype");
-  font-display: auto;
-  font-style: normal;
-  font-weight: 700;
-  font-stretch: normal;
-}
+} */
 
 /* vars */
 :root {
+  --gray-one: #757575;
   --cream-gray: #d9d9d9;
   --royal-blue: #266cd7;
   --mustard-yellow: #d7ba26;
@@ -65,7 +58,6 @@ a {
   --purple: #9326d7;
   --black: #000;
   --white: #fff;
-  --main-font: HWT Artz;
   --max-width: 100vw;
   --max-height: 100vh;
   --modal-width: 88.8rem;
@@ -75,8 +67,19 @@ a {
   --modal-margin-bottom: 15.2rem;
 }
 
-.flex {
-  /* display: flex;
+.just-flex {
+  display: flex;
+}
+
+.flex-end-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
 }
