@@ -1,0 +1,32 @@
+/* utilities */
+:root{
+    --blue: #2A4E92;
+}
+
+.characters{
+    background-image: url(/RPG-Game/assets/character-page-assets/Background.png);    
+}
+.top-tag{
+    width: 10.7rem;
+    height: 2.8rem;
+    background-color: var(--black);
+    text-align: center;
+}
+.character-container{
+    width: 35rem;
+    height: 75rem;
+    border: var(--black) solid 0.5rem;
+    text-align: center;
+}
+.blue-char{
+    background-color: var(--blue);
+}
+.first-column, .third-column{
+    background-color: var(--black);
+    border-radius: 1rem;
+}
+.green-btn{
+    background-color: var(--green, linear-gradient(180deg, #3DBE42 0%, #3BB827 100%));
+    border-radius: 0.8rem 0.8rem 0.4rem 0.4rem;
+
+}
