@@ -1,16 +1,17 @@
-// Initialization
+const slides = document.querySelectorAll('#slider img');
 
-const slides = document.querySelectorAll("img");
+let currentIndex = 0;
 
-console.log(slides);
+function moveSlide(direction) {
+  slides[currentIndex].classList.remove('active');
 
-const currentIndex = 0;
-console.log(currentIndex);
+  currentIndex += direction;
 
-const moveSlide = (direction) => {
-  slides.remove(".active");
-  slides.forEach((img, idx) => {
-    console.log(img);
-  });
-};
-moveSlide();
+  if (currentIndex < 0) {
+    currentIndex = 0;
+  } else if (currentIndex >= slides.length) {
+    currentIndex = slides.length - 1;
+  }
+
+  slides[currentIndex].classList.add('active');
+}
