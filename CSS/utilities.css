@@ -70,12 +70,9 @@ button {
 /* btn utility */
 .primary-btn {
   display: inline-block;
-  width: 23.6rem;
-  height: 5rem;
   border-radius: 0.8rem;
   text-align: center;
   line-height: 5rem;
-  font-size: 1.6rem;
   text-decoration: none;
   border: 0.4rem solid black;
   position: relative;
@@ -83,28 +80,30 @@ button {
   z-index: 1;
   box-shadow: 0px 0.3rem 0.1rem rgba(0, 0, 0, 0.7);
   font-family: "hwt-artz";
-  font-size: 3rem;
   line-height: 3.6rem;
   letter-spacing: 0.09rem;
-  text-shadow: 0.08rem 0rem 0rem rgb(0, 0, 0),
+  /* width: 23.6rem;
+  height: 5rem; */
+  /* font-size: 3rem; */
+  /* text-shadow: 0.08rem 0rem 0rem rgb(0, 0, 0),
     0.05657rem 0.05657rem 0rem rgb(0, 0, 0), 0rem 0.08rem 0rem rgb(0, 0, 0),
     -0.05657rem 0.05657rem 0rem rgb(0, 0, 0), -0.08rem 0rem 0rem rgb(0, 0, 0),
     -0.05657rem -0.05657rem 0rem rgb(0, 0, 0), 0rem -0.08rem 0rem rgb(0, 0, 0),
-    0.05657rem -0.05657rem 0rem rgb(0, 0, 0);
+    0.05657rem -0.05657rem 0rem rgb(0, 0, 0); */
 }
 
 .primary-btn::before {
   content: "";
   position: absolute;
-  width: 22.9rem;
-  height: 3.5rem;
-  top: 0.3rem;
-  left: 0;
-  right: 0;
-  bottom: 0.3rem;
   border-radius: 0.6rem;
   filter: blur(0.1rem);
   z-index: -1;
+  /* top: 0.3rem;
+  bottom: 0.3rem;
+  left: 0;
+  right: 0; */
+  /* width: 22.9rem;
+  height: 3.5rem; */
 }
 
 /* flex utility */

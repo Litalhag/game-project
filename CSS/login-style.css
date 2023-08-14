@@ -275,8 +275,22 @@ label {
   background: linear-gradient(to bottom, #66fa73, #0d8011);
   color: var(--white);
   margin-left: 21rem;
+  width: 23.6rem;
+  height: 5rem;
+  font-size: 3rem;
+  text-shadow: 0.08rem 0rem 0rem rgb(0, 0, 0),
+    0.05657rem 0.05657rem 0rem rgb(0, 0, 0), 0rem 0.08rem 0rem rgb(0, 0, 0),
+    -0.05657rem 0.05657rem 0rem rgb(0, 0, 0), -0.08rem 0rem 0rem rgb(0, 0, 0),
+    -0.05657rem -0.05657rem 0rem rgb(0, 0, 0), 0rem -0.08rem 0rem rgb(0, 0, 0),
+    0.05657rem -0.05657rem 0rem rgb(0, 0, 0);
 }
 
 .green-button::before {
   background: linear-gradient(to bottom, #3dbe42, #3bb827);
+  width: 22.9rem;
+  height: 3.5rem;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  left: 0;
+  right: 0;
 }
