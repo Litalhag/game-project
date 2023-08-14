@@ -1,12 +1,16 @@
 /* utilities */
 :root{
     --blue: #2A4E92;
+    --green-button: #3dbe42
 }
 .lunatix-font-style{
     font-family: "lunatix";
     font-size: 1.8rem;
     letter-spacing: 0.054rem;
     text-shadow: 0px 2px 0px #000;
+}
+.shadow-thick{
+    text-shadow: -0.15rem 0rem black, -0.15rem 0.15rem black, 0.15rem 0.15rem black, 0.15rem -0.15rem black, -0.15rem -0.15rem black;
 }
 h5{
     font-size: 1.5rem;
@@ -60,7 +64,7 @@ h5{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
-    gap: 0.5rem;
+    column-gap: 0.8rem;
     padding-left: 3rem;
 }
 .first-column, .third-column{
@@ -71,17 +75,50 @@ h5{
     width: 10.5rem;
     height: 3.5rem;
     font-size: 1.8rem;
+    padding-left: 1.5rem;
+    
 }
 .second-column{
     width: 10.2rem;
-    height: 2.666rem;
+    height: 3.1rem;
     font-size: 1.8rem;
-    border-radius: 0.8rem 0.8rem 0.4rem 0.4rem;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+.arrow-up{
+    margin-right: 1.4rem;
+}
+.medal{
+    margin-right: 0.5rem;
+    stroke-width: 2px;
+    stroke: #000;
 }
 .third-column{
+    position: relative;
     width: 7rem;
     height: 2.5rem;
     font-size: 1.2rem;
+    margin-top: 0.5rem;
+    justify-content: right;
+    padding-right: 0.8rem;
+}
+.third-column::before{
+    content: 'X1';
+    position: absolute;
+    top:0.2rem;
+    left:0.2rem;
+    width: 3.5rem;
+    height: 2.1rem;
+    background-color: var(--green-button);
+    color: var(--black);
+    border-radius: 5.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 button{
@@ -94,5 +131,5 @@ button{
 }
 .green-btn{
     background-color: var(--green, linear-gradient(180deg, #3DBE42 0%, #3BB827 100%));
-    border-radius: 0.8rem 0.8rem 0.4rem 0.4rem;
+    border-radius: 0.8rem;
 }
