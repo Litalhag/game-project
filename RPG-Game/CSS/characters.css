@@ -2,31 +2,97 @@
 :root{
     --blue: #2A4E92;
 }
+.lunatix-font-style{
+    font-family: "lunatix";
+    font-size: 1.8rem;
+    letter-spacing: 0.054rem;
+    text-shadow: 0px 2px 0px #000;
+}
+h5{
+    font-size: 1.5rem;
+}
 
 .characters{
+    margin-top: 8.5rem;
+    width: 192rem;
+    height: 91rem;
     background-image: url(/RPG-Game/assets/character-page-assets/Background.png);    
+    color: var(--white);
+    font-weight: 700;
+    font-style: normal;
+    position:absolute;
 }
 .top-tag{
+    position: relative;
+    left: 9rem; 
+    top:9.6rem;
     width: 10.7rem;
     height: 2.8rem;
-    background-color: var(--black);
-    text-align: center;
+    background-color: var(--black);    
 }
 .character-container{
     width: 35rem;
     height: 75rem;
     border: var(--black) solid 0.5rem;
     text-align: center;
+    
 }
 .blue-char{
     background-color: var(--blue);
+    margin-top: 9.3rem;
+    margin-left: 9rem;
+}
+.character-name{
+    font-size: 4.8rem;
+    text-shadow: 0px 4px 0px #000;
+    margin-top:4.8rem ;
+}
+.character-img{
+    margin-top: 2.3rem;
+    margin-bottom: 2rem;
+}
+.char-properties-top{
+    line-height: 1.5rem; 
+    letter-spacing: 0.045rem;
+    margin-bottom: 1.7rem;
+}
+.char-properties-bottom{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 0.5rem;
+    padding-left: 3rem;
 }
 .first-column, .third-column{
     background-color: var(--black);
-    border-radius: 1rem;
+    border-radius: 3rem;
+}
+.first-column{
+    width: 10.5rem;
+    height: 3.5rem;
+    font-size: 1.8rem;
+}
+.second-column{
+    width: 10.2rem;
+    height: 2.666rem;
+    font-size: 1.8rem;
+    border-radius: 0.8rem 0.8rem 0.4rem 0.4rem;
+}
+.third-column{
+    width: 7rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+}
+
+button{
+    grid-column: 1 / span 3;
+    width: 28.5rem;
+    height: 4.3rem;
+    font-size: 3.3rem;
+    font-family:  "hwt-artz";
+    color: var(--white);
 }
 .green-btn{
     background-color: var(--green, linear-gradient(180deg, #3DBE42 0%, #3BB827 100%));
     border-radius: 0.8rem 0.8rem 0.4rem 0.4rem;
-
 }
