@@ -62,11 +62,13 @@
   color: var(--white);
   margin-right: 1.5rem;
   margin-left: 1.69rem;
+  -webkit-text-stroke: black 0.85px;
 }
 
 #my-stats {
   color: var(--gray-one);
   margin-left: 1.5rem;
+  -webkit-text-stroke: black 0.85px;
 }
 
 #back-btn {
@@ -127,7 +129,8 @@
   font-family: "hwt-artz", sans-serif;
   color: var(--white);
   /* offset-x | offset-y | blur-radius | color */
-  text-shadow: -2.5px -2.5px 2px #000, 2.5px 2.5px 2px #000;
+  text-shadow: -0.25rem -0.25rem 0.2rem #000, 0.25rem 0.25rem 0.2rem #000;
+  -webkit-text-stroke: black 0.1rem;
   font-size: 3.6rem;
   margin-left: 2.3rem;
   margin-top: 3rem;
