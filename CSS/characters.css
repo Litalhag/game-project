@@ -57,7 +57,7 @@ h5 {
 .characters {
   width: 192rem;
   height: auto;
-  background-image: url(/game-project/assets/character-page-assets/Background.png);
+  background-image: url(../assets/character-page-assets/Background.png);
   color: var(--white);
   font-weight: 700;
   font-style: normal;
