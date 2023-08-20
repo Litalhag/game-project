@@ -9,12 +9,12 @@ function addProductToCart(productId) {
   };
 }
 function updateCart() {
-  const cartElement = document.querySelector(".cart"); // CR - should be 'const cartItemsDiv = document.querySelector('.cart-items');'
+  const cartElement = document.querySelector(".cart-items"); // CR - should be 'const cartItemsDiv = document.querySelector('.cart-items');'
   cartElement.innerHTML = "";
   for (const [productId, quantity] of Object.entries(cart)) {
     const cartItemDiv = document.createElement("div");
     cartItemDiv.className = "cart-item";
-    cartItemDiv.innerHTML = `product ID:${productId} and quantity:${quantity}`; // CR - should be 'cartItemDiv.innerHTML = `Product ${productId}: ${quantity}`;'
+    cartItemDiv.innerHTML = `product ${productId}: ${quantity}`; // CR - should be 'cartItemDiv.innerHTML = `Product ${productId}: ${quantity}`;'
     cartElement.appendChild(cartItemDiv);
   }
 }
