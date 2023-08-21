@@ -82,14 +82,6 @@ button {
   font-family: "hwt-artz";
   line-height: 3.6rem;
   letter-spacing: 0.09rem;
-  /* width: 23.6rem;
-  height: 5rem; */
-  /* font-size: 3rem; */
-  /* text-shadow: 0.08rem 0rem 0rem rgb(0, 0, 0),
-    0.05657rem 0.05657rem 0rem rgb(0, 0, 0), 0rem 0.08rem 0rem rgb(0, 0, 0),
-    -0.05657rem 0.05657rem 0rem rgb(0, 0, 0), -0.08rem 0rem 0rem rgb(0, 0, 0),
-    -0.05657rem -0.05657rem 0rem rgb(0, 0, 0), 0rem -0.08rem 0rem rgb(0, 0, 0),
-    0.05657rem -0.05657rem 0rem rgb(0, 0, 0); */
 }
 
 .primary-btn::before {
@@ -98,12 +90,6 @@ button {
   border-radius: 0.6rem;
   filter: blur(0.1rem);
   z-index: -1;
-  /* top: 0.3rem;
-  bottom: 0.3rem;
-  left: 0;
-  right: 0; */
-  /* width: 22.9rem;
-  height: 3.5rem; */
 }
 
 /* flex utility */
@@ -140,9 +126,7 @@ button {
   align-items: center;
 }
 
-/* font Open Sans */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
-
+/* Main classes */
 .lobby {
   display: flex;
   align-items: center;
@@ -158,10 +142,6 @@ button {
   margin-top: var(--modal-margin-top);
   margin-bottom: var(--modal-margin-bottom);
   overflow: hidden;
-
-  /* margin-left: var(--modal-left-right-margin);
-  margin-right: var(--modal-left-right-margin); */
-
   display: grid;
   grid-template-areas:
     "navbar"
@@ -223,8 +203,7 @@ button {
 /* Header */
 .modal-header {
   grid-area: header-img;
-  background: url("../assets/modal-header/complete_header.png");
-  /* width: 101.7378rem; */
+  background: url("./assets/modal-header/complete_header.png");
   height: 23.7rem;
   position: relative;
 }
@@ -232,11 +211,6 @@ button {
 .gun {
   display: block;
   position: absolute;
-  /* width: 14rem;
-  height: 4.6rem; */
-  /* right: 27.7rem;
-  bottom: -3.8rem; */
-  /* bottom: -4.2rem; */
   right: 14.8rem;
   top: 22.9rem;
 }
@@ -280,11 +254,18 @@ button {
 
 /* showcase */
 .modal-showcase {
+  display: flex;
   grid-area: showcase;
   height: 42rem;
   gap: 7.3rem;
   width: 100%;
   background-color: white;
+}
+
+.btn-container {
+  position: absolute;
+  right: -30rem;
+  top: 30rem;
 }
 
 .modal-avatar {
@@ -309,7 +290,6 @@ button {
   width: 7.5rem;
   height: 7.5rem;
   background-color: #f0f0f0;
-  /* You can add background images to the '.image' class if needed */
 }
 
 .scaled-image {
@@ -333,6 +313,11 @@ button {
   margin-left: 4rem;
   gap: 1.5rem;
   height: 29rem;
+  position: relative;
+}
+
+.form-contents {
+  flex-grow: 1;
 }
 
 input {
@@ -370,9 +355,22 @@ label {
   margin-bottom: 0.5rem;
 }
 
+/* This one is actually a utility btw */
 .input-type-div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  color: var(--red);
+  display: none; /* Hidden by default */
+}
+
+.error-input {
+  border: 2px solid var(--red) !important; /* Adjust as needed */
 }
 
 .input-container {
@@ -390,14 +388,14 @@ label {
 }
 
 .horizontal-list {
-  padding: 0;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-around;
 }
 
 .horizontal-list li {
   list-style-type: disc;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   font-size: 1.1rem;
   font-style: normal;
   font-weight: 600;
@@ -416,7 +414,7 @@ label {
 .green-button {
   background: linear-gradient(to bottom, #66fa73, #0d8011);
   color: var(--white);
-  margin-left: 21rem;
+  /* margin-left: 21rem; */
   width: 23.6rem;
   height: 5rem;
   font-size: 3rem;

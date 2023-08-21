@@ -8,11 +8,9 @@ function updateCarousel() {
 
     const translateX = (position - 1) * 180;
 
-    const scaleValue = position === 1 ? "1.2" : "";
+    const scaleValue = position === 1 ? "1.2" : "1";
 
-    character.style.transform = `translateX(${translateX}px) scale(${
-      scaleValue || 1
-    })`;
+    character.style.transform = `translateX(${translateX}px) scale(${scaleValue})`;
 
     if (position === 1) {
       character.classList.add("character-center");
@@ -31,7 +29,7 @@ characters.forEach((character, index) => {
       return;
     }
 
-    const rotationsNeeded = position === 0 ? 2 : 1;
+    const rotationsNeeded = position === 0 ? 1 : 2;
 
     for (let i = 0; i < rotationsNeeded; i++) {
       positions.push(positions.shift());

@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel=“stylesheet” href=“https://use.typekit.net/kzh3yrd.css” />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Architects+Daughter&family=Dosis:wght@300;400&family=Lato&family=Montserrat:wght@500&family=Open+Sans:wght@300;400&family=Quicksand:wght@400;500&family=Roboto:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main class="lobby">
@@ -39,37 +45,56 @@
         </div>
 
         <div class="flex-align-center modal-showcase">
-          <div class="modal-form">
-            <div class="input-type-div">
-              <label>NICKNAME</label>
-              <input type="text" placeholder="This will be your screen name" />
-            </div>
-            <div class="input-type-div">
-              <label>EMAIL ADDRESS</label>
-              <input type="email" placeholder="Enter valid email address" />
+          <form class="modal-form" id="modal-form">
+            <div class="form-contents">
+              <div class="input-type-div">
+                <label>NICKNAME</label>
+                <input
+                  type="text"
+                  id="nicknameInput"
+                  placeholder="This will be your screen name"
+                />
+                <div class="error-message" id="nicknameInputError"></div>
+              </div>
+              <div class="input-type-div">
+                <label>EMAIL ADDRESS</label>
+                <input
+                  type="email"
+                  id="emailInput"
+                  placeholder="Enter valid email address"
+                />
+                <div class="error-message" id="emailInputError"></div>
+              </div>
+
+              <div class="input-type-div">
+                <label>PASSWORD</label>
+                <div class="input-container">
+                  <span class="input-icon">
+                    <img src="./assets/icons/Vector-eye.png" alt="" />
+                  </span>
+                  <input
+                    type="password"
+                    class="custom-input"
+                    placeholder="AHHkhsldlfo888"
+                    id="passwordInput"
+                  />
+                </div>
+                <div class="error-message" id="passwordInputError"></div>
+                <ul class="horizontal-list">
+                  <li id="password-list-spc-chr">Special Characters</li>
+                  <li id="password-list-caps">Caps</li>
+                  <li id="password-list-lowercase">Lowercase</li>
+                  <li id="password-list-numbers">Numbers</li>
+                </ul>
+              </div>
             </div>
 
-            <div class="input-type-div">
-              <label>PASSWORD</label>
-              <div class="input-container">
-                <span class="input-icon">
-                  <img src="./assets/icons/Vector-eye.png" alt="" />
-                </span>
-                <input
-                  type="password"
-                  class="custom-input"
-                  placeholder="AHHkhsldlfo888"
-                  id="passwordInput"
-                />
-              </div>
-              <ul class="horizontal-list">
-                <li id="password-list-spc-chr">Special Characters</li>
-                <li id="password-list-caps">Caps</li>
-                <li id="password-list-lowercase">Lowercase</li>
-                <li id="password-list-numbers">Numbers</li>
-              </ul>
+            <div class="btn-container">
+              <button type="submit" class="primary-btn green-button">
+                CREATE ACCOUNT
+              </button>
             </div>
-          </div>
+          </form>
 
           <div class="modal-avatar">
             <label>AVATAR</label>
@@ -170,10 +195,9 @@
             </div>
           </div>
         </div>
-        <div class="flex-justify-content">
-          <button class="primary-btn green-button">CREATE ACCOUNT</button>
-        </div>
       </div>
     </main>
+
+    <script src="./app.js"></script>
   </body>
 </html>
