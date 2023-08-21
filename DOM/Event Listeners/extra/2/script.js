@@ -1,6 +1,7 @@
 const characters = document.querySelectorAll(".character");
 console.log(characters);
 const positions = [0, 1, 2];
+
 function updateCarousel() {
   characters.forEach((char, i) => {
     const pos = positions[i];
@@ -17,23 +18,19 @@ function updateCarousel() {
     }
   });
 }
+
 updateCarousel();
 
 characters.forEach((char, i) => {
-  let times;
   char.addEventListener("click", function () {
-    if (char.classList.contains("character-center")) return;
+    let times;
+    const pos = positions[i];
+    if (pos === 1) return;
     else {
-      console.log("i:", i);
-      times = i - positions.indexOf(1) < 1 ? 2 : 1;
-      // times = Math.abs(positions.indexOf(1) - i);
-      // times = i === 0 ? 1 : 2;
-      console.log(times);
-      // if (event.target.id === "char1") times = 2;
-      // else if (event.target.id === "char3") times = 1;
+      if (pos == 2) times = 2;
+      else if (pos == 0) times = 1;
       for (let j = 0; j < times; j++) {
         positions.push(positions.shift());
-        console.log(positions);
       }
     }
     updateCarousel();

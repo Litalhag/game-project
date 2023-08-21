@@ -81,7 +81,7 @@
 /* Header */
 .modal-header {
   grid-area: header-img;
-  background: url("../assets/modal-header/complete_header.png");
+  background: url("assets/modal-header/complete_header.png");
   /* width: 101.7378rem; */
   height: 23.7rem;
   position: relative;
@@ -210,7 +210,7 @@ input {
   padding: 1.3rem 7.6rem 1.2rem 1.3rem;
 }
 
-#passwordInput::placeholder {
+#password::placeholder {
   color: var(--red);
   font-family: "Open sans";
   font-size: 1.8rem;
@@ -267,10 +267,18 @@ label {
 .password-list-numbers {
   color: #32a709;
 }
-.error{
+.passError{
   color: var(--red);
 }
-
+.error{
+    background-color: red;
+}
+.error-message{
+    font-family: "Open Sans";
+    font-size:1.5rem;
+    font-style: normal;
+    color:red;
+}
 /* button */
 .green-button {
   background: linear-gradient(to bottom, #66fa73, #0d8011);

@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.typekit.net/kzh3yrd.css" />
     <title>RPG-Game</title>
-    <link rel="stylesheet" href="./css/utilities.css" />
-    <link rel="stylesheet" href="./css/login-top.css" />
-    <link rel="stylesheet" href="./css/login-bottom.css" />
-    <link rel="stylesheet" href="./css/login-style.css" />
+    <link rel="stylesheet" href="utilities.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/kzh3yrd.css" />
   </head>
   <body>
@@ -17,7 +15,7 @@
         <!-- Navbar -->
         <div class="just-flex navbar">
           <button id="back-btn">
-            <img src="./assets/modal-header/Back-Button.png" alt="" />
+            <img src="assets/modal-header/Back-Button.png" alt="" />
           </button>
           <button id="my-account" class="login-btn-top">MY ACCOUNT</button>
           <button id="my-stats" class="login-btn-top">MY STATS</button>
@@ -28,14 +26,14 @@
           <!--Left Header -->
           <div class="left-square-icon">
             <div class="icon-choice">
-              <img src="./assets/modal-header/guest-icon.png" alt="" />
+              <img src="assets/modal-header/guest-icon.png" alt="" />
             </div>
             <div class="icon-char">GUEST</div>
           </div>
           <!--Right Header  -->
           <div class="right-header">
             <div class="gun">
-              <img src="./assets/modal-header/Gun Overhang.png" alt="" />
+              <img src="/assets/modal-header/Gun Overhang.png" alt="" />
             </div>
           </div>
         </div>
@@ -45,27 +43,30 @@
             <div class="input-type-div">
               <label>NICKNAME</label>
               <input id="nickname" type="text" placeholder="This will be your screen name" />
+              <div class="error-message" id="nicknameError"></div>
             </div>
             <div class="input-type-div">
               <label>EMAIL ADDRESS</label>
               <input id="email" type="email" placeholder="Enter valid email address" />
+              <div class="error-message" id="emailError"></div>
             </div>
 
             <div class="input-type-div">
               <label>PASSWORD</label>
               <div class="input-container">
                 <span class="input-icon">
-                  <img src="./assets/icons/Vector-eye.png" alt="" />
+                  <img src="/assets/icons/Vector-eye.png" alt="" />
                 </span>
                 <input
                   type="password"
                   class="custom-input"
                   placeholder="AHHkhsldlfo888"
-                  id="passwordInput"
+                  id="password"
                 />
+                <div class="error-message" id="passwordError"></div>
               </div>
               <ul class="horizontal-list">
-                <li class="password-list-spc-chr error">Special Characters</li>
+                <li class="password-list-spc-chr passError">Special Characters</li>
                 <li class="password-list-caps">Caps</li>
                 <li class="password-list-lowercase">Lowercase</li>
                 <li class="password-list-numbers">Numbers</li>
@@ -178,6 +179,6 @@
         
       </div>
     </main>
-    <script src="/js/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
