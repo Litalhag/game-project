@@ -1,4 +1,3 @@
-// Function to fetch users and display them
 async function fetchUsers() {
   const usersContainer = document.getElementById("users");
   const errorContainer = document.getElementById("error");
