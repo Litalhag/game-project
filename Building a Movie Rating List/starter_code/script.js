@@ -11,8 +11,8 @@ class Movie {
   }
 
   getReleaseDate() {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return this.releaseDate;
+    const date = new Date(this.releaseDate);
+    return date.toLocaleDateString();
   }
 
   getPicture() {
@@ -68,15 +68,27 @@ const updateItemCount = () => {
 const createMovieCard = (movie) => {
   const target = document.querySelector(".movies-list");
   target.innerHTML += `
-      <div class="movie">
-        <img class="vector-img" src="./images/Vector.svg">
-        <a href="#">
-          <img class="poster-img" src="./images/tabler-icon-plus.svg">
-        </a>
-        <img class="poster" src=${movie.getPicture()}>
-        <h2>${movie.getTitle()}</h2>
-        <p>Release Date: ${movie.getReleaseDate()}</p>
-        <p>Rating: ${movie.getRating()}</p>
-      </div>`;
+  <div class="movie">
+    <img class="vector-img" src="./images/Vector.svg">
+    <a href="#">
+    <img class="poster-img" src="./images/tabler-icon-plus.svg">
+    </a>
+    <img class="poster" src=${movie.getPicture()}>
+    <div class="flex-container movie-info">
+      <a href="#" class="title normal-link">${movie.getTitle()}</a>
+      <p class="release-date"><strong>Release Date:</strong> ${movie.getReleaseDate()}</p>
+      <div class="flex-container rate-trailer">
+        <div class="flex-container trailer">
+          <img src="./images/play.svg">
+          <a href="#">Trailer</a>
+        </div>
+        <div class="flex-container rating">
+          <img src="./images/star.svg">
+          <p>${movie.getRating()}</p>
+        </div>
+      </div>
+    </div>
+  </div>    
+  `;
 };
 fetchMovies();
