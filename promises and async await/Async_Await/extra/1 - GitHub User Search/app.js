@@ -5,9 +5,7 @@ const searchButton = document.querySelector('#searchButton');
 
 async function fetchUser(username) {
   let response = await fetch(GITHUB_API_URL + username);
-  console.log(response);
   const user = await response.json();
-  console.log(user);
   displayUser(user);
 }
 function displayUser(user) {
