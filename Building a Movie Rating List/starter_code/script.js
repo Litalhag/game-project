@@ -1,40 +1,82 @@
-class movie {
-  constructor(title, releaseDate, picture, raiting) {
+class Movie {
+  constructor(title, releaseDate, picture, rating) {
     this.title = title;
     this.releaseDate = releaseDate;
     this.picture = picture;
-    this.raiting = raiting;
+    this.rating = rating;
   }
-  gitTitle() {
+
+  getTitle() {
     return this.title;
   }
+
   getReleaseDate() {
-    return this.releaseDate.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return this.releaseDate;
   }
+
   getPicture() {
-    return this.picture;
+    return getImage(this.picture);
   }
+
   getRating() {
-    return this.raiting;
+    return this.rating;
   }
 }
 const getHttpOptions = () => ({
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: "Bearer your-bearer-token-here",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhN2ZiNTI2ZGFlMTgzODBkZmI1MjU3ZGMxZmVjMTgzMiIsInN1YiI6IjY0ZWQ5Yzc2MWZlYWMxMDBlMTZjMTE1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RzkZTtSv_t3pa63lNzv29AiJfkalFOrcbkgkF1M9d5s",
   },
 });
 const API_BASE_URL = "https://api.themoviedb.org/3/";
 
-const getImage = (imagePath, size = "original") => {
-  const imageUrl = `${API_BASE_URL}t/p/${size}/${imgPath}`;
-  return imageUrl;
+const getImage = (imgPath, size = "original") => {
+  const API_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
+  return `${API_IMAGE_BASE_URL}/${size}/${imgPath}`;
 };
-function fetchMovies() {
-  fetch(`${API_BASE_URL}movie/popular?language=en-US&page=1`, getHttpOptions());
-}
+const fetchMovies = () => {
+  const url = `${API_BASE_URL}movie/now_playing?language=en-US&page=1`;
+  const options = getHttpOptions();
+
+  fetch(url, options)
+    .then((response) => response.json())
+    .then((data) => {
+      data.results.forEach((item) => {
+        const movie = new Movie(
+          item.title,
+          item.release_date,
+          getImage(item.poster_path),
+          item.vote_average
+        );
+        createMovieCard(movie);
+      });
+      updateItemCount();
+    })
+    .catch((error) => {
+      console.log("Error fetching movies:", error);
+    });
+};
+const updateItemCount = () => {
+  const itemCountParagraph = document.querySelector(".sort-bar p");
+  const movieElements = document.querySelectorAll(".movie");
+  const movieCount = movieElements.length;
+  itemCountParagraph.textContent = `${movieCount} items`;
+};
+const createMovieCard = (movie) => {
+  const target = document.querySelector(".movies-list");
+  target.innerHTML += `
+      <div class="movie">
+        <img class="vector-img" src="./images/Vector.svg">
+        <a href="#">
+          <img class="poster-img" src="./images/tabler-icon-plus.svg">
+        </a>
+        <img class="poster" src=${movie.getPicture()}>
+        <h2>${movie.getTitle()}</h2>
+        <p>Release Date: ${movie.getReleaseDate()}</p>
+        <p>Rating: ${movie.getRating()}</p>
+      </div>`;
+};
+fetchMovies();
