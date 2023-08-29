@@ -3,38 +3,41 @@ const numList = document.querySelectorAll('#form input[type="text"]');
 const hidCode = document.querySelector("#hid-code");
 const visCode = document.querySelector("#vis-code");
 
-// function generateCode() {
-//   const characters =
-//     "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//   let code = "";
+function generateCode() {
+  const characters =
+    "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let code = "";
 
-//   for (let i = 0; i < 6; i++) {
-//     const randomIndex = Math.floor(Math.random() * characters.length);
-//     // CR - make the code all lowercase
-//     code += characters.charAt(randomIndex).toLocaleLowerCase();;
-//   }
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    // CR - make the code all lowercase
+    code += characters.charAt(randomIndex).toLocaleLowerCase();
+  }
 
-//   return code;
-// }
+  return code;
+}
 
-// const sms = generateCode();
-// console.log(sms);
-
-// visCode.value = sms;
+const sms = generateCode();
 // CR - instead of the above function, you could also do this:
-visCode.value = Math.random().toString(36).slice(2, 8).toLowerCase();
+// const sms = Math.random().toString(36).slice(2, 8).toLowerCase();
+
+console.log(sms);
+
+visCode.value = sms;
 
 numList[0].focus();
 
 function fillCode(el) {
   // make sure if entered alphanumeric character
   if (/^[a-zA-Z0-9]$/.test(el.value)) {
-    hidCode.value = Array.from(numList)
-      .reduce((add, n) => add + n.value, "")
-      .toLowerCase();
+    let combinedCode = Array.from(numList)
+      .reduce((acc, input) => {
+        return acc + input.value;
+      }, "")
+      .toLocaleLowerCase();
 
     // Assign the combined value to the hidden input
-    // hidCode.value = combinedCode;
+    hidCode.value = combinedCode;
     /*
       CR - If you have a variable that is being used just once, don't use a variable. instead do this:
          hidCode.value = Array.from(numList)

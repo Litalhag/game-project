@@ -1,5 +1,4 @@
 function showError(input, message) {
-  console.log("showError is called");
   const errorDiv = document.getElementById(input.id + "Error");
   errorDiv.textContent = message;
   errorDiv.style.display = "block";
@@ -46,6 +45,7 @@ form.addEventListener("submit", function (e) {
     isValid = false;
   } else if (nicknameInput.value.trim().length < 3) {
     showError(nicknameInput, "Nickname should be at least 3 characters long!");
+    isValid = false;
   } else {
     hideError(nicknameInput);
   }
