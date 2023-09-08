@@ -1,13 +1,20 @@
 const usersURL = "https://jsonplaceholder.typicode.com/users";
 const postsURL = "https://jsonplaceholder.typicode.com/posts";
-const usersPromise = fetch(usersURL).then((response) => response.json());
-const postsPromise = fetch(postsURL).then((response) => response.json());
-const usersContainer = document.getElementById("users");
-const postsContainer = document.getElementById("posts");
-const errorContainer = document.getElementById("error");
+async function fetchData(url) {
+  const response = await fetch(url);
+  return response.json();
+}
 
-Promise.all([usersPromise, postsPromise])
-  .then(([users, posts]) => {
+async function displayData() {
+  const usersContainer = document.getElementById("users");
+  const postsContainer = document.getElementById("posts");
+  const errorContainer = document.getElementById("error");
+
+  try {
+    const [users, posts] = await Promise.all([
+      fetchData(usersURL),
+      fetchData(postsURL),
+    ]);
     users.forEach((user) => {
       const userDiv = document.createElement("div");
       userDiv.classList.add("item");
@@ -20,7 +27,8 @@ Promise.all([usersPromise, postsPromise])
       postDiv.innerHTML = `<strong>${post.title}</strong><br> ${post.body}`;
       postsContainer.appendChild(postDiv);
     });
-  })
-  .catch((err) => {
+  } catch (err) {
     errorContainer.innerText = `An error occurred ${err.message}`;
-  });
+  }
+}
+displayData();
